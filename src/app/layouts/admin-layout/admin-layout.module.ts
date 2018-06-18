@@ -11,6 +11,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { RatingModule } from 'ngx-bootstrap';
 
 import {
   MatButtonModule,
@@ -25,6 +26,7 @@ import {
     FormsModule,
     MatButtonModule,
     MatRippleModule,
+    RatingModule.forRoot(),
     MatInputModule,
     MatTooltipModule,
   ],

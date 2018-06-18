@@ -8,6 +8,10 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
+  max = 5;
+  rate =4;
+  isReadonly: boolean = true;
+
   constructor() { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
