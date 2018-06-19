@@ -16,7 +16,6 @@ export class DashboardComponent implements OnInit {
   constructor(private http: HttpClient) { 
     var data = require('./data.json');
     this.data=data;
-    console.log(this.data);
   }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
