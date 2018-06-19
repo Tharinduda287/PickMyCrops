@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
-
+import { HttpClient } from '@angular/common/http';
+// import * as data from './data.json';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,8 +12,11 @@ export class DashboardComponent implements OnInit {
   max = 5;
   rate =4;
   isReadonly: boolean = true;
-
-  constructor() { }
+  data:any;
+  constructor(private http: HttpClient) { 
+    var data = require('./data.json');
+    this.data=data;
+  }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;

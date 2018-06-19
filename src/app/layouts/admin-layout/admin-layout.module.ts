@@ -12,6 +12,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RatingModule } from 'ngx-bootstrap';
+import {AdvertisementComponent} from '../../advertisement/advertisement.component';
 
 import {
   MatButtonModule,
@@ -39,6 +40,7 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    AdvertisementComponent,
   ]
 })
 
