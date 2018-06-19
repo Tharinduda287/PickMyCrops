@@ -27,13 +27,13 @@ export class UserProfileComponent implements OnInit {
     ngOnInit() {
       this.user();
     }
-    usertemp(){
+    usertemp(){ 
      
         if(this.userName==null&&this.lastName==null){
           this.max=5;
           this.rate=3;
           this.userName="NihalG";
-          this.email="gamage@gmail.com";
+          this.email="gamage@gmail.com"; 
           this.contactNo="014578965";
           this.firstName="Nihal";
           this.lastName="Gamage";
