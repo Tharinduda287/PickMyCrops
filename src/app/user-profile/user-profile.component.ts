@@ -54,7 +54,7 @@ export class UserProfileComponent implements OnInit {
     }
 
     update(){
-      //  console.log(this.userName)
+        console.log(this.userName)
         this.usertemp();
     }
 }
