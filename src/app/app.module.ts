@@ -23,6 +23,7 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { RatingModule } from 'ngx-bootstrap';
 
+import {Api} from './services/api.service';
 import {
   AgmCoreModule
 } from '@agm/core';
@@ -64,7 +65,7 @@ import {
     
 
   ],
-  providers: [],
+  providers: [Api],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

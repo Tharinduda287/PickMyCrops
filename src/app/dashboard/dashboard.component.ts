@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { HttpClient } from '@angular/common/http';
 // import * as data from './data.json';
+import {Api} from '../services/api.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,9 +14,17 @@ export class DashboardComponent implements OnInit {
   rate =4;
   isReadonly: boolean = true;
   data:any;
-  constructor(private http: HttpClient) { 
+  private api:Api;
+  getdata:any;
+  constructor(private http: HttpClient,api:Api) { 
     var data = require('./data.json');
-    this.data=data;
+    this.data=data;//here should get data calling api from backend
+    this.api=api;
+    this.api.get('https://jsonplaceholder.typicode.com/todos/').subscribe(r=>{
+      this.getdata=r;
+      console.log(this.getdata);
+    },e=>{});
+  
   }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
