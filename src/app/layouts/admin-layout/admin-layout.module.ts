@@ -13,6 +13,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { RatingModule } from 'ngx-bootstrap';
 import {AdvertisementComponent} from '../../advertisement/advertisement.component';
+import {UserHistoryComponent}from '../../user-history/user-history.component';
+import {NewAdComponent}from '../../new-ad/new-ad.component';
 
 import {
   MatButtonModule,
@@ -41,6 +43,8 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     AdvertisementComponent,
+    UserHistoryComponent,
+    NewAdComponent,
   ]
 })
 

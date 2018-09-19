@@ -1,6 +1,7 @@
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row">
+    
+    <div class="row">
           <div class="col-md-8">
               <div class="card">
                   <div class="card-header card-header-success">
@@ -8,8 +9,8 @@
                         සංස්කරණය කරන්න</h4>
                       <p class="card-category">Complete your profile/සම්පූර්ණ කරන්න</p>
                   </div>
-                  <div class="card-body">
-                      <form>
+                  <div class="card" style="margin-left:4px">
+                      <form >
                           <div class="row">
                               <!-- <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
@@ -95,7 +96,7 @@
               </div>
           </div>
 
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" style="width:300px;margin-left: AUTO;margin-right: AUTO;" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -106,8 +107,8 @@
                 </div>
                
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-success pull-right" (click)="update()">Save changes</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>       
+                  <button type="button" class="btn btn-success pull-right" (click)="update()" >Save changes</button>
                 </div>
               </div>
             </div>
@@ -117,11 +118,11 @@
           <div class="col-md-4">
               <div class="card card-profile">
                   <div class="card-avatar">
-                      <a href="#pablo">
-                          <img class="img" src="https://scontent.fcmb3-1.fna.fbcdn.net/v/t1.0-1/p100x100/18058198_1775959029384181_6209670192323194199_n.jpg?_nc_cat=0&oh=80f2db8a83a274d32c2927b0e2375951&oe=5BA94386" />
+                      <a href="#">
+                          <img class="img" src="https://www.thebetterindia.com/wp-content/uploads/2017/12/IMG-20171207-WA0017-500x500.jpg" />
                       </a>
                   </div>
-                  <div class="card-body">
+                  <div class="card- ">
                       
                       <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" style="color: #95b31a;font-size: 25px;"></rating>
                       <h6 class="card-category text-gray"style="margin-top:5px;">{{userName}}</h6>
@@ -133,6 +134,25 @@
               </div>
           </div>
       </div>
+
+
+      <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-success">
+                      <h4 class="card-title">Activities/
+                        ක්‍රියාකාරකම් </h4>
+                  </div>
+              </div>
+            </div>
+              <div class="container-fluid">
+                <div class="card card-chart d-flex" style="background-color: #d8d8d8;padding-left: 10px;padding-right: 10px;margin-top: -10px;" >
+                        <div class="card-body " >
+                            <app-user-history ></app-user-history>
+                        </div>
+                    </div>
+      </div>
+      </div> 
   </div>
 </div>
 
