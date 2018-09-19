@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -19,10 +20,15 @@ export class UserProfileComponent implements OnInit {
 
     max:number;
     rate:number;
+    // isReadonly: boolean = true;
+    
     isReadonly: boolean = true;
+    data:any;
 
 
-    constructor() { }
+    constructor() {
+     
+     }
 
     ngOnInit() {
       this.user();
@@ -56,5 +62,6 @@ export class UserProfileComponent implements OnInit {
     update(){
         console.log(this.userName)
         this.usertemp();
+        window.location.reload();
     }
 }

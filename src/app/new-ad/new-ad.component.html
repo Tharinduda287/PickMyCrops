@@ -1,0 +1,113 @@
+<div class="main-content">
+  <div class="container-fluid">
+    
+    <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-success">
+                      <h4 class="card-title">Post a New Ad/
+                        සංස්කරණය කරන්න</h4>
+                      <!-- <p class="card-category">Complete your profile/සම්පූර්ණ කරන්න</p> -->
+                  </div>
+                  <div class="card" style="margin-left:4px">
+                      <form >
+                          <div class="row">
+                              <!-- <div class="col-md-5">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Company (disabled)" disabled>
+                                  </mat-form-field>
+                              </div> -->
+                              <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Username/පරිශීලක නම" matInput value= {{userName}} (input)="userName = $event.target.value">
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Email address/ඊමේල් ලිපිනය" matInput value= {{email}} type="email" (input)="email = $event.target.value">
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Contact No:/දු.ක." matInput value= {{contactNo}} type="text" (input)="contactNo = $event.target.value">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Fruit or Vegetable/පළතුරු හෝ එළවළු වර්ගය"matInput value= {{firstName}} type="text" (input)="firstName = $event.target.value">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Stock/ප්‍රමාණය" matInput value= {{lastName}} type="text" (input)="lastName = $event.target.value">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                          <div class="col-md-6">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Price/kg/මිල කිලෝ ග්‍රෑමයට" matInput value= {{password}} type="text" (input)="password = $event.target.value">
+                            </mat-form-field>
+                          </div>
+                          
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="location/ස්තානය" matInput value= {{city}} type="text" (input)="city = $event.target.value">
+                              </mat-form-field>
+                            </div>
+                          
+                             
+                        </div>
+                          <div class="row">
+                              <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Adress/ලිපිනය" matInput value= {{address}} type="text" (input)="address = $event.target.value">
+                                </mat-form-field>
+                              </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-12">
+                            <label class="btn btn-default btn-file">
+                              Choose a picture of your crop/පින්තූරයක් උඩුගත කරන්න <input type="file" style="display: none;">
+                          </label>
+                          </div>
+                      </div>
+                      
+                        
+                        
+
+                          <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">
+                            Update Profile/උඩුගත කරන්න
+                          </button>
+
+                          <!-- <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="update()" data-target="#exampleModal">Update Profile/උඩුගත කරන්න</button> -->
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+
+          <div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" style="width:300px;margin-left: AUTO;margin-right: AUTO;" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Do you want to save data?</h5>
+                  <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+               
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>       
+                  <button type="button" class="btn btn-success pull-right" (click)="update()" >Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
