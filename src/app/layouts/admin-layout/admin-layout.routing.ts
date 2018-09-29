@@ -9,6 +9,9 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { NewAdComponent } from '../../new-ad/new-ad.component';
+import { LoginComponent } from '../../login/login.component';
+import { SignInComponent } from '../../login/sign-in/sign-in.component';
+import {SignUpComponent } from '../../login/sign-up/sign-up.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -62,4 +65,13 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'postad',        component: NewAdComponent },
+    { 
+        path: 'login',        component: LoginComponent,
+        children:[{path:'',component: SignInComponent }]
+    },
+    { 
+        path: 'signup',        component: LoginComponent,
+        children:[{path:'',component: SignUpComponent }]
+    },
+
 ];

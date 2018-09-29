@@ -23,7 +23,8 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { RatingModule } from 'ngx-bootstrap';
 
-import {Api} from './services/api.service';
+import { Api } from './services/api.service';
+import { NavbarService } from './services/navbar.service';
 import {
   AgmCoreModule
 } from '@agm/core';
@@ -69,7 +70,7 @@ import {
     
 
   ],
-  providers: [Api],
+  providers: [Api,NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
