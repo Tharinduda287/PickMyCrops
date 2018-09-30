@@ -13,13 +13,14 @@ export class LoginService {
     body.Password=user.Password;
     body.Email=user.Email;
     body.FirstName=user.FirstName;
-    body.LastName=user.LastName;      
-    return this.http.post(this.rootUrl+'/api/Account/Register',body);
+    body.LastName=user.LastName;     
+    var reqHeader = new HttpHeaders({'No-Auth':'True'}); 
+    return this.http.post(this.rootUrl+'/api/Account/Register',body,{headers:reqHeader});
   }
 
   userAuthentication(userName,password){
     var data= "UserName="+userName+"&Password="+ password+"&grant_type=password";
-    var reqHeader = new HttpHeaders({'Content-Type':'application/x-www-urlencoded'});
+    var reqHeader = new HttpHeaders({'Content-Type':'application/x-www-urlencoded','No-Auth':'True'});
     return this.http.post(this.rootUrl+'/token',data,{headers:reqHeader})
   }
 }

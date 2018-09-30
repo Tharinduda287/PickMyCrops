@@ -12,6 +12,7 @@ import { NewAdComponent } from '../../new-ad/new-ad.component';
 import { LoginComponent } from '../../login/login.component';
 import { SignInComponent } from '../../login/sign-in/sign-in.component';
 import { SignUpComponent } from '../../login/sign-up/sign-up.component';
+import { AuthGuard } from 'app/auth/auth.guard';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -57,14 +58,14 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'user-profile',   component: UserProfileComponent,canActivate:[AuthGuard] },
     { path: 'table-list',     component: TableListComponent },
     // { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
+    { path: 'notifications',  component: NotificationsComponent,canActivate:[AuthGuard] },
     { path: 'upgrade',        component: UpgradeComponent },
-    { path: 'postad',        component: NewAdComponent },
+    { path: 'postad',        component: NewAdComponent,canActivate:[AuthGuard] },
     { 
         path: 'login',        component: LoginComponent,
         children:[{path:'',component: SignInComponent }]

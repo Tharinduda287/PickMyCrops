@@ -44,6 +44,9 @@ import {
   MatCheckboxModule
 } from '@angular/material';
 import { LoginService } from 'app/services/login.service';
+import { AuthGuard } from './auth/auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'app/auth/auth.interceptor';
 
 
 
@@ -66,7 +69,15 @@ import { LoginService } from 'app/services/login.service';
     AppComponent,
     AdminLayoutComponent,
   ],
-  providers: [Api,NavbarService,LoginService],
+  providers: [
+    Api,NavbarService,
+    LoginService,AuthGuard,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
