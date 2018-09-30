@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { NewAdComponent } from '../../new-ad/new-ad.component';
 import { LoginComponent } from '../../login/login.component';
 import { SignInComponent } from '../../login/sign-in/sign-in.component';
+import { ViewAdComponent } from '../../view-ad/view-ad.component';
 import { SignUpComponent } from '../../login/sign-up/sign-up.component';
 import { AuthGuard } from 'app/auth/auth.guard';
 
@@ -60,7 +61,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent,canActivate:[AuthGuard] },
     { path: 'table-list',     component: TableListComponent },
-    // { path: 'typography',     component: TypographyComponent },
+    { path: 'viewAd',     component: ViewAdComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent,canActivate:[AuthGuard] },

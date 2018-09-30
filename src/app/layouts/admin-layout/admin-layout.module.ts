@@ -16,6 +16,7 @@ import {AdvertisementComponent} from '../../advertisement/advertisement.componen
 import {UserHistoryComponent}from '../../user-history/user-history.component';
 import {NewAdComponent}from '../../new-ad/new-ad.component';
 import { LoginComponent } from '../../login/login.component';
+import { ViewAdComponent } from '../../view-ad/view-ad.component';
 import { SignInComponent } from '../../login/sign-in/sign-in.component';
 import { SignUpComponent } from '../../login/sign-up/sign-up.component';
 import {
@@ -47,7 +48,9 @@ import {
     AdvertisementComponent,
     UserHistoryComponent,
     NewAdComponent,
-    LoginComponent,SignInComponent,SignUpComponent
+    LoginComponent,SignInComponent,SignUpComponent,
+    ViewAdComponent
+
   ]
 })
 
