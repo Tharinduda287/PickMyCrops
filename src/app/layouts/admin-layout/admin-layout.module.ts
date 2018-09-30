@@ -15,6 +15,7 @@ import { RatingModule } from 'ngx-bootstrap';
 import {AdvertisementComponent} from '../../advertisement/advertisement.component';
 import {UserHistoryComponent}from '../../user-history/user-history.component';
 import {NewAdComponent}from '../../new-ad/new-ad.component';
+import { ViewAdComponent } from '../../view-ad/view-ad.component';
 
 import {
   MatButtonModule,
@@ -45,6 +46,8 @@ import {
     AdvertisementComponent,
     UserHistoryComponent,
     NewAdComponent,
+    ViewAdComponent,
+
   ]
 })
 
