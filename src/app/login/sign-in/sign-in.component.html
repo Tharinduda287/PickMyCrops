@@ -24,10 +24,12 @@
     </label>
     <input type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required />
   </div>
-  
+  <div *ngIf="isLogginError" class="red-text center error-message" style="color: rgb(182, 7, 7);">
+    <i class="material-icons">error</i>Incorrect UserName or Password
+  </div>
   <p class="forgot"><a href="#">Forgot Password?</a></p>
   
-  <button class="button button-block" (click)="OnSubmit(userLogInForm)">Log In</button>
+  <button class="button button-block" (click)="OnSubmit(UserName.value,Password.value)">Log In</button>
   
   </form>
 

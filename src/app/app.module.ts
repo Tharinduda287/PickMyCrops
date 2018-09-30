@@ -43,6 +43,7 @@ import {
   MatButtonModule,
   MatCheckboxModule
 } from '@angular/material';
+import { LoginService } from 'app/services/login.service';
 
 
 
@@ -64,13 +65,8 @@ import {
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-   
-    
-    
-    
-
   ],
-  providers: [Api,NavbarService],
+  providers: [Api,NavbarService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

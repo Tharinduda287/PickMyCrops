@@ -16,9 +16,11 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     private userToken:boolean;
     constructor(location: Location,  private element: ElementRef, private router: Router,public nav: NavbarService ) {
-      this.location = location;
-          this.sidebarVisible = false;
-          this.userToken=localStorage.getItem('userToken')!=null;
+        this.location = location;
+        this.sidebarVisible = false;
+        router.events.subscribe(e=>{
+            this.userToken=localStorage.getItem('userToken')!=null;
+        });
     }
 
     ngOnInit(){
@@ -33,6 +35,7 @@ export class NavbarComponent implements OnInit {
            this.mobile_menu_visible = 0;
          }
      });
+    //  this.userToken=localStorage.getItem('userToken')!=null;
     }
 
     sidebarOpen() {
@@ -123,5 +126,9 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }
+    logout(){
+        localStorage.removeItem('userToken');
+        this.router.navigate(['/dashboard'])
     }
 }
