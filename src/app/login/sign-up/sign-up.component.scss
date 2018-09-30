@@ -191,3 +191,8 @@ textarea {
   margin-top:-20px;
   text-align:right;
 }
+
+input.ng-invalid.ng-dirty{
+  border-color: red !important;
+  box-shadow: red !important;
+}
