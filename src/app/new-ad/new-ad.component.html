@@ -2,13 +2,14 @@
   <div class="container-fluid">
     
     <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-8" style="allign:center;">
               <div class="card">
                   <div class="card-header card-header-success">
                       <h4 class="card-title">Post a New Ad/
                         සංස්කරණය කරන්න</h4>
                       <!-- <p class="card-category">Complete your profile/සම්පූර්ණ කරන්න</p> -->
                   </div>
+                  <div class="card-body">
                   <div class="card" style="margin-left:4px">
                       <form >
                           <div class="row">
@@ -86,7 +87,7 @@
                           <!-- <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="update()" data-target="#exampleModal">Update Profile/උඩුගත කරන්න</button> -->
                           <div class="clearfix"></div>
                       </form>
-                  </div>
+                  </div></div>
               </div>
           </div>
 
@@ -95,14 +96,16 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Do you want to save data?</h5>
-                  <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
+                  <button type="button" class="close" data-dismiss="modal"  aria-label="Close"  >
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>       
-                  <button type="button" class="btn btn-success pull-right" (click)="update()" >Save changes</button>
+                  <!-- <button type="button" class="btn btn-success pull-right"  [routerLink]="['/viewAd']" >Save changes</button> -->
+                  <button type="button" class="btn btn-success pull-right" (click)="update()"  >Save changes</button>
+
                 </div>
               </div>
             </div>

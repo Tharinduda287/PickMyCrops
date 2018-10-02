@@ -19,6 +19,9 @@ import { LoginComponent } from '../../login/login.component';
 import { ViewAdComponent } from '../../view-ad/view-ad.component';
 import { SignInComponent } from '../../login/sign-in/sign-in.component';
 import { SignUpComponent } from '../../login/sign-up/sign-up.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { CarouselModule } from 'ngx-bootstrap';
+import { MatChipsModule } from '@angular/material';
 import {
   MatButtonModule,
   MatInputModule,
@@ -35,6 +38,11 @@ import {
     RatingModule.forRoot(),
     MatInputModule,
     MatTooltipModule,
+    MatGridListModule,
+    CarouselModule.forRoot(),
+    MatChipsModule,
+   
+   
   ],
   declarations: [
     DashboardComponent,

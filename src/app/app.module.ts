@@ -1,10 +1,13 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NavbarService } from './services/navbar.service';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -20,15 +23,21 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { RatingModule } from 'ngx-bootstrap';
+import { AlertModule } from 'ngx-bootstrap';
 
-import { Api } from './services/api.service';
-import { NavbarService } from './services/navbar.service';
+
+
+import {Api} from './services/api.service';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+// import {MatCheckboxModule} from '@angular/material/checkbox';
+
 import {
   MatToolbarModule,
   MatIconModule,
@@ -41,20 +50,47 @@ import {
   MatInputModule,
   MatCardModule,
   MatButtonModule,
-  MatCheckboxModule
+  MatChipsModule,
+  MatPseudoCheckboxModule,  
+  MatCheckboxModule,
+ 
 } from '@angular/material';
 
 
 
 @NgModule({
   imports: [
+
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
     MatCardModule, 
     ComponentsModule,
     RouterModule,
+
+    MatAutocompleteModule,
+   
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    MatButtonToggleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatChipsModule,
+    MatPseudoCheckboxModule,
+    
+
+    AlertModule.forRoot(),
+    
+
+    NgbModule,
     AppRoutingModule,RatingModule.forRoot(),
     TooltipModule.forRoot(),
     AgmCoreModule.forRoot({
@@ -63,12 +99,7 @@ import {
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-   
-    
-    
-    
-
+    AdminLayoutComponent,  
   ],
   providers: [Api,NavbarService],
   bootstrap: [AppComponent]
