@@ -1,5 +1,4 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -55,6 +54,10 @@ import {
   MatCheckboxModule,
  
 } from '@angular/material';
+import { LoginService } from 'app/services/login.service';
+import { AuthGuard } from './auth/auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'app/auth/auth.interceptor';
 
 
 
@@ -101,7 +104,15 @@ import {
     AppComponent,
     AdminLayoutComponent,  
   ],
-  providers: [Api,NavbarService],
+  providers: [
+    Api,NavbarService,
+    LoginService,AuthGuard,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

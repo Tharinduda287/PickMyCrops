@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { NavbarService } from 'app/services/navbar.service';
+import { LoginService } from 'app/services/login.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,25 +16,23 @@ import { NavbarService } from 'app/services/navbar.service';
 })
 export class SignInComponent implements OnInit {
   user:User;
-  // api:Api;
-  constructor(private api:Api,private router:Router,private http:HttpClient,private nav: NavbarService) { }
+  isLogginError:boolean;
+  constructor(private loginService:LoginService,private router:Router,private http:HttpClient,private nav: NavbarService) { }
 
   ngOnInit() {
     this.resetForm();
   }
-  OnSubmit(form:NgForm){
-    const body = new User();
-    body.UserName=form.value.UserName;
-    body.Password=form.value.Password;   
-    var data= "Username="+body.UserName+"&Password="+ body.Password+"&grant_type=password";
-    var reqHeader = new HttpHeaders({'Content-Type':'application/x-www-urlencoded'});
-    this.http.post('http://localhost:16626/token',data,{headers:reqHeader}).subscribe((data:any)=>{
+  OnSubmit(userName,password){ 
+
+    this.loginService.userAuthentication(userName,password)
+    .subscribe((data:any)=>{
       console.log(data);
       localStorage.setItem('userToken',data.access_token);
       this.nav.show();
       this.router.navigate(['/dashboard']);
     },(err:HttpErrorResponse)=>{
       console.log(err);
+      this.isLogginError=true;
     });
   }
   resetForm(form? :NgForm){
