@@ -1,0 +1,143 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card row col-9" style="background-color: #d8d8d8;padding-left: 10px;padding-right: 10px;margin-top: -10px;">
+        <!-- <button (click)="saveComment(form.controls.editor.value)" class="btn btn-info ml-auto" style="width: 175px;margin-top:10px">Ask Question</button> -->
+      <ask-question></ask-question>
+      <div class="card">
+        <div class="card-header card-header-success">
+          <h4 class="card-title">Multivariate Time Series Model in python</h4>
+        </div>
+        <div class="card-body" style="margin-bottom:30px;">
+          <div class="question-details narrow">
+            <div class="cp">
+              <div class="votes">
+                <div>
+                  <i class="material-icons" style="font-size:60px;cursor: pointer;">arrow_drop_up</i>
+                </div>
+                <div class="mini-counts">
+                  <span>5</span>
+                </div>
+                <div>
+                  <i class="material-icons" style="font-size:60px;cursor: pointer;">arrow_drop_down</i>
+                </div>
+              </div>
+            </div>
+            <div class="summary">
+              <div>
+                I'm trying to set up a Bootstrap tab strip with Angular 2. I have the tabs rendering in an ngFor but I'm getting template
+                errors when I try to put the # infront of the href expression. So this template compiles but isn't what I
+                want:
+              </div>
+              <div class="question-images">
+                <img class="card-img-top" [src]="img" style="max-height:250px;max-width:400px;">
+              </div>
+              <div style="    margin-top: 10px;">
+                <div class="question-tags" *ngFor="let tag of arr let j=index">
+                  <a routerLink="/news/" class="post-tag" title="" rel="tag">Watermelon</a>
+                </div>
+              </div>
+              <div class="user-info">
+                <div class="user-action-time">
+                  asked
+                  <span class="relativetime">8 mins ago</span>
+                </div>
+                <div class="user-gravatar32">
+                  <a href="/users/8063792/apoorv-parmar">
+                    <div class="gravatar-wrapper-32">
+                      <img src="https://lh6.googleusercontent.com/-nAnCu6f6H_A/AAAAAAAAAAI/AAAAAAAAAOM/-ZoDQNH4EJY/photo.jpg?sz=32" alt="" width="32"
+                        height="32">
+                    </div>
+                  </a>
+                </div>
+                <div class="user-details">
+                  <a href="/users/8063792/apoorv-parmar">apoorv parmar</a>
+                  <div class="-flair">
+                    <span class="reputation-score" title="reputation score " dir="ltr">23</span>
+                    <span title="5 bronze badges">
+                      <span class="badge3"></span>
+                      <span class="badgecount">5</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 style="margin:5px">
+        3 Answers
+      </h3>
+      <div class="card"  *ngFor="let tag of arr let i=index" style="margin-bottom:5px;margin-top:5px;padding-top:20px;">
+          <div class="question-details narrow">
+              <div class="cp">
+                <div class="votes">
+                  <div>
+                    <i class="material-icons" style="font-size:60px;cursor: pointer;">arrow_drop_up</i>
+                  </div>
+                  <div class="mini-counts">
+                    <span>5</span>
+                  </div>
+                  <div>
+                    <i class="material-icons" style="font-size:60px;cursor: pointer;">arrow_drop_down</i>
+                  </div>
+                </div>
+              </div>
+              <div class="summary">
+                <div>
+                  I'm trying to set up a Bootstrap tab strip with Angular 2. I have the tabs rendering in an ngFor but I'm getting template
+                  errors when I try to put the # infront of the href expression. So this template compiles but isn't what I
+                  want:
+                </div>
+                <div class="question-images">
+                  <img class="card-img-top" [src]="img" style="max-height:250px;max-width:400px;">
+                </div>
+                <div class="user-info">
+                  <div class="user-action-time">
+                    asked
+                    <span class="relativetime">8 mins ago</span>
+                  </div>
+                  <div class="user-gravatar32">
+                    <a href="/users/8063792/apoorv-parmar">
+                      <div class="gravatar-wrapper-32">
+                        <img src="https://lh6.googleusercontent.com/-nAnCu6f6H_A/AAAAAAAAAAI/AAAAAAAAAOM/-ZoDQNH4EJY/photo.jpg?sz=32" alt="" width="32"
+                          height="32">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="user-details">
+                    <a href="/users/8063792/apoorv-parmar">apoorv parmar</a>
+                    <div class="-flair">
+                      <span class="reputation-score" title="reputation score " dir="ltr">23</span>
+                      <span title="5 bronze badges">
+                        <span class="badge3"></span>
+                        <span class="badgecount">5</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+      <h3 style="margin:5px">
+          Your Answer
+      </h3>
+      <div class="input card">
+        <form [formGroup]="form">
+          <!-- {{form.controls.editor.value}} -->
+          <!-- <button type="button" (click)="patchValue()">patchValue</button>
+          <button type="button" (click)="setControl()">setControl</button> -->
+          <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [formControl]="form.controls['editor']"></quill-editor>
+        </form>
+        <!-- <quill-editor></quill-editor> -->
+        <!-- <form [formGroup]="form"></form> -->
+      </div>
+      <hr>
+      <div class="output-message card" [innerHTML]="test(form.controls.editor.value)" style="padding:5px;" *ngIf="form.controls.editor.value!=''">
+        <!-- {{form.controls.editor.value}} -->
+      </div>
+      <hr>
+      <button (click)="saveComment(form.controls.editor.value)" class="btn btn-success" style="width: 175px;">Save Your Answar</button>
+    </div>
+
+  </div>
+</div>

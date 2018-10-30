@@ -11,7 +11,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { RatingModule } from 'ngx-bootstrap';
+import { RatingModule,ModalModule  } from 'ngx-bootstrap';
 import {AdvertisementComponent} from '../../advertisement/advertisement.component';
 import {UserHistoryComponent}from '../../user-history/user-history.component';
 import {NewAdComponent}from '../../new-ad/new-ad.component';
@@ -28,11 +28,17 @@ import {
   MatRippleModule,
   MatTooltipModule,
 } from '@angular/material';
+import { NewsComponent } from 'app/news/news.component';
+import { QuestionComponent } from 'app/question/question.component';
+import { QuillModule } from 'ngx-quill';
+import { AskQuestionComponent } from 'app/question/ask-question/ask-question.component';
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatRippleModule,
     RatingModule.forRoot(),
@@ -41,11 +47,13 @@ import {
     MatGridListModule,
     CarouselModule.forRoot(),
     MatChipsModule,
-   
+    QuillModule,
+    ModalModule.forRoot()
    
   ],
   declarations: [
     DashboardComponent,
+    NewsComponent,
     UserProfileComponent,
     TableListComponent,
     TypographyComponent,
@@ -57,8 +65,9 @@ import {
     UserHistoryComponent,
     NewAdComponent,
     LoginComponent,SignInComponent,SignUpComponent,
-    ViewAdComponent
-
+    ViewAdComponent,
+    QuestionComponent,
+    AskQuestionComponent
   ]
 })
 

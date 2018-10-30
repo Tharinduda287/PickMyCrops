@@ -98,11 +98,12 @@ import { AuthInterceptor } from 'app/auth/auth.interceptor';
     TooltipModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
+    }),
+    // QuillModule
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,  
+    AdminLayoutComponent
   ],
   providers: [
     Api,NavbarService,

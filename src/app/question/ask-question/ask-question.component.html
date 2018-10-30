@@ -1,0 +1,31 @@
+<!--Large modal-->
+<!-- <button class="btn btn-primary" (click)="lgModal.show()">Large modal</button> -->
+<button class="btn btn-info ml-auto" (click)="lgModal.show()" style="width: 175px;margin-top:10px">Ask Question</button>
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Ask a question</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="input-group input-group-sm">
+              <span class="input-group-addon" id="sizing-addon3">Title</span>
+              <input type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon3">
+            </div>
+        <div class="input card">
+          <form [formGroup]="form">
+            <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [formControl]="form.controls['editor']"></quill-editor>
+          </form>
+        </div>
+        <hr>
+        <div class="output-message " [innerHTML]="test(form.controls.editor.value)" style="padding:5px;" *ngIf="form.controls.editor.value!=''">
+        </div>
+        <hr>
+        <button (click)="saveQuestion(form.controls.editor.value)" (click)="lgModal.hide()" class="btn btn-success" style="width: 175px;">Save Your Answar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+.question-summary{
+    display: flex;
+    padding: 12px 8px;
+    float: none;
+    width: 100%;
+    overflow: hidden;
+}
+.cp, .narrow .cp {
+    float: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    margin-right: 0;
+    padding: 0 8px 0 0;
+    box-sizing: content-box;
+    flex-shrink: 0;
+}
+.narrow .cp {
+    vertical-align: top;
+    float: left;
+    margin-right: 10px;
+}
+.narrow .votes {
+    display: inline-block;
+    height: 38px;
+    min-width: 38px;
+    margin: 0 3px 0 0;
+    font-size: 11px;
+    color: #848d95;
+    padding: 7px 6px;
+}
+.votes {
+    padding: 0;
+    margin-bottom: 8px;
+    text-align: center;
+}
+.status.answered-accepted, .status.answered-accepted .mini-counts, .status.answered-accepted .minicounts span {
+    color: #FFF;
+}
+.narrow .status {
+    color: #848d95;
+    text-align: center;
+}
+.narrow .status {
+    display: inline-block;
+    margin: 0 3px 0 0;
+    min-width: 44px;
+    height: auto;
+    font-size: 11px;
+    padding: 6px;
+    border-radius: 3px;
+}
+.answered-accepted {
+    border: 1px solid transparent;
+}
+.question-starter {
+    width: 200px;
+    float: right;
+    line-height: 18px;
+}
+.narrow .question-starter {
+    width: auto;
+    line-height: inherit;
+    padding-top: 4px;
+    white-space: nowrap;
+}
+.narrow .question-starter {
+    white-space: normal;
+}
+.question-tags {
+    line-height: 18px;
+    float: left;
+}
+.post-tag{
+    font-size: 12px;
+    color: #39739d !important;
+    background-color: #E1ECF4;
+    border-color: #E1ECF4;
+    position: relative;
+    display: inline-block;
+    padding: .4em .5em;
+    margin: 2px 2px 2px 0;
+    font-size: 11px;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    transition: all .15s ease-in-out;
+}
+.summary, .narrow .summary {
+    flex: 1 auto;
+    width: auto;
+    float: none;
+    margin: 0;
+    overflow: hidden;
+}
+.narrow .summary {
+    width: 530px;
+    padding: 0;
+    float: left;
+}
+.cp {
+    cursor: pointer;
+}
