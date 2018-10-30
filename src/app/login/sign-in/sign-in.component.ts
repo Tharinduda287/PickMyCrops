@@ -8,6 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { NavbarService } from 'app/services/navbar.service';
 import { LoginService } from 'app/services/login.service';
+import { ngxLoadingAnimationTypes, NgxLoadingComponent } from 'ngx-loading';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,6 +16,8 @@ import { LoginService } from 'app/services/login.service';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
+  public loading=false;
+  public ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
   user:User;
   isLogginError:boolean;
   constructor(private loginService:LoginService,private router:Router,private http:HttpClient,private nav: NavbarService) { }
@@ -23,15 +26,17 @@ export class SignInComponent implements OnInit {
     this.resetForm();
   }
   OnSubmit(userName,password){ 
-
+    this.loading =true;
     this.loginService.userAuthentication(userName,password)
     .subscribe((data:any)=>{
       console.log(data);
       localStorage.setItem('userToken',data.access_token);
       this.nav.show();
+      this.loading=false;
       this.router.navigate(['/dashboard']);
     },(err:HttpErrorResponse)=>{
       console.log(err);
+      this.loading=false;
       this.isLogginError=true;
     });
   }

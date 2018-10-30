@@ -59,7 +59,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from 'app/auth/auth.interceptor';
 
-
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   imports: [
@@ -100,6 +100,7 @@ import { AuthInterceptor } from 'app/auth/auth.interceptor';
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
     // QuillModule
+    // NgxLoadingModule.forRoot({})
   ],
   declarations: [
     AppComponent,

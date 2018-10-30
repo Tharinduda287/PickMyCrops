@@ -32,7 +32,7 @@ import { NewsComponent } from 'app/news/news.component';
 import { QuestionComponent } from 'app/question/question.component';
 import { QuillModule } from 'ngx-quill';
 import { AskQuestionComponent } from 'app/question/ask-question/ask-question.component';
-
+import { NgxLoadingModule } from 'ngx-loading';
 @NgModule({
   imports: [
     CommonModule,
@@ -48,7 +48,8 @@ import { AskQuestionComponent } from 'app/question/ask-question/ask-question.com
     CarouselModule.forRoot(),
     MatChipsModule,
     QuillModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxLoadingModule.forRoot({})
    
   ],
   declarations: [
