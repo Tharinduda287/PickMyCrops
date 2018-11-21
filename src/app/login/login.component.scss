@@ -39,9 +39,14 @@ a {
 }
 
 .form {
+  // position: fixed;
+  margin-top: 10% !important;
+  margin-left: auto;
+  margin-right: auto;
   background:rgba($form-bg,.9);
   padding: 40px;
   max-width:600px;
+  // height:650px;
   margin:40px auto;
   border-radius:$br;
   box-shadow:0 4px 10px 4px rgba($form-bg,.3);
@@ -191,3 +196,8 @@ textarea {
   margin-top:-20px;
   text-align:right;
 }
+// .test11{
+//   position: fixed;
+//   top: 10%;
+//   left: 35%;
+// }

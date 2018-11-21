@@ -16,6 +16,7 @@ import { SignUpComponent } from '../../login/sign-up/sign-up.component';
 import { AuthGuard } from 'app/auth/auth.guard';
 import { NewsComponent } from 'app/news/news.component';
 import { QuestionComponent } from 'app/question/question.component';
+import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -61,6 +62,7 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'dashboard',      component: DashboardComponent },
+    { path: 'settings',      component: AdminSettingsComponent },
     { path: 'news',      component: NewsComponent },
     { path: 'user-profile',   component: UserProfileComponent,canActivate:[AuthGuard] },
     { path: 'table-list',     component: TableListComponent },

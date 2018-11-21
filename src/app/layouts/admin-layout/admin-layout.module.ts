@@ -19,20 +19,28 @@ import { LoginComponent } from '../../login/login.component';
 import { ViewAdComponent } from '../../view-ad/view-ad.component';
 import { SignInComponent } from '../../login/sign-in/sign-in.component';
 import { SignUpComponent } from '../../login/sign-up/sign-up.component';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { CarouselModule } from 'ngx-bootstrap';
-import { MatChipsModule } from '@angular/material';
+// import {MatGridListModule} from '@angular/material/grid-list';
+import { 
+  CarouselModule,
+  AccordionModule 
+} from 'ngx-bootstrap';
 import {
+  MatGridListModule,
+  MatChipsModule,
   MatButtonModule,
   MatInputModule,
   MatRippleModule,
   MatTooltipModule,
+  MatExpansionModule,
+  MatIconModule
 } from '@angular/material';
 import { NewsComponent } from 'app/news/news.component';
 import { QuestionComponent } from 'app/question/question.component';
 import { QuillModule } from 'ngx-quill';
 import { AskQuestionComponent } from 'app/question/ask-question/ask-question.component';
 import { NgxLoadingModule } from 'ngx-loading';
+import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -49,8 +57,10 @@ import { NgxLoadingModule } from 'ngx-loading';
     MatChipsModule,
     QuillModule,
     ModalModule.forRoot(),
-    NgxLoadingModule.forRoot({})
-   
+    NgxLoadingModule.forRoot({}),
+    AccordionModule.forRoot(),
+    MatExpansionModule,
+    MatIconModule
   ],
   declarations: [
     DashboardComponent,
@@ -68,7 +78,8 @@ import { NgxLoadingModule } from 'ngx-loading';
     LoginComponent,SignInComponent,SignUpComponent,
     ViewAdComponent,
     QuestionComponent,
-    AskQuestionComponent
+    AskQuestionComponent,
+    AdminSettingsComponent
   ]
 })
 

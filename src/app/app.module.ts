@@ -23,7 +23,7 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { TooltipModule } from 'ngx-bootstrap';
 import { RatingModule } from 'ngx-bootstrap';
 import { AlertModule } from 'ngx-bootstrap';
 
@@ -52,7 +52,7 @@ import {
   MatChipsModule,
   MatPseudoCheckboxModule,  
   MatCheckboxModule,
- 
+  MatExpansionModule,
 } from '@angular/material';
 import { LoginService } from 'app/services/login.service';
 import { AuthGuard } from './auth/auth.guard';
@@ -63,7 +63,6 @@ import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   imports: [
-
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -88,7 +87,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     MatButtonModule,
     MatChipsModule,
     MatPseudoCheckboxModule,
-    
+    MatExpansionModule,
 
     AlertModule.forRoot(),
     
@@ -99,6 +98,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
+    NgbModule.forRoot(),
     // QuillModule
     // NgxLoadingModule.forRoot({})
   ],
