@@ -24,7 +24,11 @@ export class LoginService {
     return this.http.post(this.rootUrl+'/token',data,{headers:reqHeader})
   }
   getUserClaims(){
-    return this.http.get(this.rootUrl+'/person');
+    return this.http.get(this.rootUrl+'/person').subscribe((data:any)=>{
+      
+    },(err)=>{
+      
+    });
   }
 }
 
