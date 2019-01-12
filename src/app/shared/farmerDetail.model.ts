@@ -10,4 +10,6 @@ export class farmerDetail {
     City :string; 
     AboutMe :string;
     pathValue :  string;
+    farmerrole:any;
+    buyerrole:any;
 }

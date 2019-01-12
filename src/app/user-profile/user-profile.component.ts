@@ -28,6 +28,9 @@ export class UserProfileComponent implements OnInit {
     tempPath:string;
     max:number;
     rate:number;
+    farmerrole:any;
+    buyerrole:any;
+
     // isReadonly: boolean = true;
     
     isReadonly: boolean = true;
@@ -77,6 +80,8 @@ export class UserProfileComponent implements OnInit {
           this.city="Colombo";
           this.password="12345asda"
           this.aboutMe="I usually grow carrots and beetroots and I always try to keep the quality of my product.";
+          this.farmerrole=true;
+          this.buyerrole=false;
         }
         else{
          
@@ -91,7 +96,8 @@ export class UserProfileComponent implements OnInit {
 
     update(){
         console.log(this.userName)
-        
+        /************ in here should add farmer role and buyer role
+          as well as must include them in shared tye and backend also*********/
         this.farmer=new farmerDetail();
         this.farmer.UserName = this.userName;
         this.farmer.FarmerId = this.FarmerId;
@@ -102,7 +108,9 @@ export class UserProfileComponent implements OnInit {
         this.farmer.AddressLine_1 = this.addressLine1;
         this.farmer.AddressLine_2 = this.addressLine2;
         this.farmer.City = this.city;      
-        this.farmer.AboutMe = this.aboutMe;
+        this.farmer.AboutMe = this.aboutMe; 
+        this.farmer.farmerrole=this.farmerrole;
+        this.farmer.buyerrole=this.buyerrole;
         console.log(this.farmer)
         var reqHeader = new HttpHeaders({'No-Auth':'True'}); 
         
@@ -133,6 +141,8 @@ export class UserProfileComponent implements OnInit {
         this.city=data.City;
         this.password="12345asda"
         this.aboutMe=data.AboutMe;
+        // this.farmer.farmerrole=this.farmerrole;
+        // this.farmer.buyerrole=this.buyerrole;
       }
       
     },(err)=>{
