@@ -8,6 +8,7 @@ import {RequestOptions,Headers } from '@angular/http';
 @Injectable()
 export class Api{
   private requestOptions;
+  baseUrl :string = "http://localhost:16626/api/";
   constructor(private http: HttpClient) {
     this.requestOptions = new RequestOptions();
     this.requestOptions.withCredentials = true;
@@ -15,19 +16,19 @@ export class Api{
    get<T>(url: string): Observable<any> {
     //var apiRoot = window.location;
     //var root = apiRoot.origin+apiRoot.pathname;
-      return this.http.get<any>(url,this.requestOptions);
+      return this.http.get<any>(this.baseUrl+url,this.requestOptions);
   }
   post<T>(url: string, body: object): Observable<any> {
     //var apiRoot = window.location;
-      return this.http.post<T>(url, body, this.requestOptions);
+      return this.http.post<T>(this.baseUrl+url, body, this.requestOptions);
   }
   put<T>(url: string, body: object): Observable<any> {
     //var apiRoot = window.location;
-      return this.http.put<T>(url, body,this.requestOptions);
+      return this.http.put<T>(this.baseUrl+url, body,this.requestOptions);
   }
   delete<T>(url: string): Observable<any> {
     //var apiRoot = window.location;
-      return this.http.delete<T>(url,this.requestOptions);
+      return this.http.delete<T>(this.baseUrl+url,this.requestOptions);
   }
 }
 @Injectable()

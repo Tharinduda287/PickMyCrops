@@ -4,6 +4,8 @@ import { QuillEditorComponent } from 'ngx-quill';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import Quill from 'quill';
 import {DomSanitizer} from "@angular/platform-browser";
+import { Api } from 'app/services/api.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'ask-question',
@@ -13,7 +15,9 @@ import {DomSanitizer} from "@angular/platform-browser";
 export class AskQuestionComponent implements OnInit {
   form: FormGroup;
   private outputText:string;
-  constructor(private fb: FormBuilder,private sanitizer:DomSanitizer) { 
+  api:Api;
+  constructor(private fb: FormBuilder,private sanitizer:DomSanitizer,api:Api) { 
+    this.api=api;
     this.form = fb.group({
       editor: ['']
     })
@@ -36,7 +40,12 @@ export class AskQuestionComponent implements OnInit {
   test(text){
     return this.sanitizer.bypassSecurityTrustHtml(text);
   }
-  saveQuestion(question:any){
-    console.log(question);
+  saveQuestion(question:any,title:string){
+    this.api.post("Question",{"Title":title,"question":question}).subscribe((data:any)=>{
+      console.log(data);
+    },(err:HttpErrorResponse)=>{
+      console.log(err);
+    });
+    console.log(question,title);
   }
 }

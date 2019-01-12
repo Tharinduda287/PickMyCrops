@@ -10,25 +10,25 @@
             <div *ngFor="let question of news let i=index">
                 <div class="card" style="margin-left:4px"  *ngIf="i == 0"  >
                     <div class="question-summary narrow">
-                        <div class="cp" routerLink="/news/{{question.id}}">
+                        <div class="cp" routerLink="/news/{{question.Id}}">
                             <div class="votes" >
                                 <div class="mini-counts"><span>{{question.votes}}</span></div>
                                 <div>votes</div>
                             </div>
                             <div class="status">
-                                <div class="mini-counts"><span>{{question.answers}}</span></div>
+                                <div class="mini-counts"><span>{{question.answarcount}}</span></div>
                                 <div>answers</div>
                             </div>
                         </div>
                         <div class="summary">
-                            <div class="question-body" style="cursor: pointer;" routerLink="/news/{{question.id}}">
-                                    {{question.title}}
+                            <div class="question-body" style="cursor: pointer;" routerLink="/news/{{question.Id}}">
+                                    {{question.Title}}
                             </div>
                             <div class="question-tags" *ngFor="let tag of question.tags let j=index">
-                                    <a routerLink="/news/{{question.id}}" class="post-tag" title="" rel="tag">{{tag}}</a>
+                                    <a routerLink="/news/{{question.Id}}" class="post-tag" title="" rel="tag">{{tag}}</a>
                             </div>
                             <div class="question-starter" style="padding-right: 25px;"> 
-                                {{question.starter}}
+                                {{question.username}}
                             </div>
                         </div>
                     </div>
@@ -38,25 +38,25 @@
                         news works!
                     </p> -->
                     <div class="question-summary narrow">
-                            <div class="cp">
+                            <div class="cp" routerLink="/news/{{question.Id}}">
                                 <div class="votes">
                                     <div class="mini-counts"><span>{{question.votes}}</span></div>
                                     <div>votes</div>
                                 </div>
                                 <div class="status">
-                                    <div class="mini-counts"><span>{{question.answers}}</span></div>
+                                    <div class="mini-counts"><span>{{question.answarcount}}</span></div>
                                     <div>answers</div>
                                 </div>
                             </div>
                             <div class="summary">
-                                <div class="question-body">
-                                        {{question.title}}
+                                <div class="question-body" routerLink="/news/{{question.Id}}">
+                                        {{question.Title}}
                                 </div>
                                 <div class="question-tags" *ngFor="let tag of question.tags let j=index">
                                         <a href="/questions/tagged/python" class="post-tag" title="" rel="tag">{{tag}}</a>
                                 </div>
                                 <div class="question-starter" style="padding-right: 25px;">
-                                        {{question.starter}}
+                                        {{question.username}}
                                 </div>
                             </div>
                         </div>

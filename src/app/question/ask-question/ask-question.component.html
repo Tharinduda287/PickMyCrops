@@ -11,13 +11,14 @@
         </button>
       </div>
       <div class="modal-body">
-          <div class="input-group">
-              <!-- <span class="input-group-addon" id="sizing-addon3">Title</span> -->
-              <!-- <input type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon3"> -->
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Title" matInput (input)="title = $event.target.value">
-              </mat-form-field>
-            </div>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="Title" matInput (input)="title = $event.target.value">
+            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+            <mat-hint></mat-hint>
+          </mat-form-field>
+        </p>
         <div class="input card">
           <form [formGroup]="form">
             <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [formControl]="form.controls['editor']"></quill-editor>

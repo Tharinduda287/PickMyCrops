@@ -19,7 +19,7 @@ import { LoginComponent } from '../../login/login.component';
 import { ViewAdComponent } from '../../view-ad/view-ad.component';
 import { SignInComponent } from '../../login/sign-in/sign-in.component';
 import { SignUpComponent } from '../../login/sign-up/sign-up.component';
-// import {MatGridListModule} from '@angular/material/grid-list';
+import { CategoryComponent } from '../../admin-settings/category/category.component';
 import { 
   CarouselModule,
   AccordionModule 
@@ -32,14 +32,20 @@ import {
   MatRippleModule,
   MatTooltipModule,
   MatExpansionModule,
-  MatIconModule
+  MatIconModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatDialogModule 
 } from '@angular/material';
+
 import { NewsComponent } from 'app/news/news.component';
 import { QuestionComponent } from 'app/question/question.component';
 import { QuillModule } from 'ngx-quill';
 import { AskQuestionComponent } from 'app/question/ask-question/ask-question.component';
 import { NgxLoadingModule } from 'ngx-loading';
 import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.component';
+import { AddNewCategoryComponent, TestComponent } from 'app/admin-settings/category/category.component';
 
 @NgModule({
   imports: [
@@ -60,7 +66,11 @@ import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.compon
     NgxLoadingModule.forRoot({}),
     AccordionModule.forRoot(),
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule 
   ],
   declarations: [
     DashboardComponent,
@@ -79,7 +89,17 @@ import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.compon
     ViewAdComponent,
     QuestionComponent,
     AskQuestionComponent,
-    AdminSettingsComponent
+    AdminSettingsComponent,
+    AddNewCategoryComponent,
+    CategoryComponent,
+    TestComponent
+  ],
+  exports: [
+    CategoryComponent
+  ],
+  entryComponents: [
+    AddNewCategoryComponent,
+    TestComponent
   ]
 })
 

@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Add New Category</h2>
+<mat-dialog-content class="mat-typography">
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Category Name</mat-label>
+      <input matInput placeholder="Placeholder" [(ngModel)]="data.name">
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+      <mat-hint></mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Category Description</mat-label>
+      <textarea matInput placeholder="Textarea" [(ngModel)]="data.weight"></textarea>
+      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+      <mat-hint></mat-hint>
+    </mat-form-field>
+  </p>
+  <div class="input card">
+    <form [formGroup]="form">
+      <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [readOnly]="isReadOnly"
+      [modules]="{toolbar: [
+        ['image']
+      ]}" [formControl]="form.controls['editor']" form.controls.editor.value="data.symbol"></quill-editor>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add Category</button>
+</mat-dialog-actions>
