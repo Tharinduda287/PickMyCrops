@@ -8,7 +8,7 @@ import {RequestOptions,Headers } from '@angular/http';
 @Injectable()
 export class Api{
   private requestOptions;
-  baseUrl :string = "http://localhost:16626/api/";
+  baseUrl :string = "http://localhost:16626/";
   constructor(private http: HttpClient) {
     this.requestOptions = new RequestOptions();
     this.requestOptions.withCredentials = true;

@@ -30,7 +30,7 @@ export class UserProfileComponent implements OnInit {
     rate:number;
     farmerrole:any;
     buyerrole:any;
-
+    roleType:any;
     // isReadonly: boolean = true;
     
     isReadonly: boolean = true;
@@ -98,6 +98,25 @@ export class UserProfileComponent implements OnInit {
         console.log(this.userName)
         /************ in here should add farmer role and buyer role
           as well as must include them in shared tye and backend also*********/
+          if (this.farmerrole) {
+            if (this.buyerrole) {
+                this.roleType = 3;
+            }
+            else
+            {
+              this.roleType = 1;
+            }
+          }
+          else
+          {
+            if (this.buyerrole)
+            {
+              this.roleType = 2;
+            }
+            else {
+              this.roleType = 0;
+            }
+         }
         this.farmer=new farmerDetail();
         this.farmer.UserName = this.userName;
         this.farmer.FarmerId = this.FarmerId;
@@ -109,12 +128,14 @@ export class UserProfileComponent implements OnInit {
         this.farmer.AddressLine_2 = this.addressLine2;
         this.farmer.City = this.city;      
         this.farmer.AboutMe = this.aboutMe; 
-        this.farmer.farmerrole=this.farmerrole;
-        this.farmer.buyerrole=this.buyerrole;
+        this.farmer.roleType=this.roleType;
+        
+      
         console.log(this.farmer)
         var reqHeader = new HttpHeaders({'No-Auth':'True'}); 
         
-        this.http.post(this.rootUrl +'/UpdateUser',this.farmer,{headers:reqHeader}).subscribe((response: Response) =>{
+        // this.http.post(this.rootUrl +'/UpdateUser',this.farmer,{headers:reqHeader}).subscribe((response: Response) =>{
+          this.api.post('UpdateUser',this.farmer).subscribe((response: Response) =>{
           console.log (response.json());
           
           })   
@@ -123,10 +144,26 @@ export class UserProfileComponent implements OnInit {
 
     getDeatail(){
       
-       var reqHeader = new HttpHeaders({'No-Auth':'True'}); 
+       //var reqHeader = new HttpHeaders({'No-Auth':'True'}); 
    
-    return this.http.get(this.rootUrl+'/GetUser',{headers:reqHeader}).subscribe((data:any)=>{ 
+    return this.api.get('GetUser').subscribe((data:any)=>{ 
       console.log(data.AddressLine_1 + data.AddressLine_2);
+      if(data.roleType==1){
+        this.farmerrole=true;
+        this.buyerrole=false;
+      }
+      else if(data.roleType==2){
+        this.farmerrole=false;
+        this.buyerrole=true;
+      }
+      else if(data.roleType==3){
+        this.farmerrole=true;
+        this.buyerrole=true;
+      }
+      else{
+        this.farmerrole=false;
+        this.buyerrole=false;
+      }
       if(this.userName==null&&this.lastName==null){
         this.FarmerId=data.FarmerId;
         this.max=5;
@@ -139,10 +176,10 @@ export class UserProfileComponent implements OnInit {
         this.addressLine1=data.AddressLine_1;
         this.addressLine2=data.AddressLine_2;
         this.city=data.City;
-        this.password="12345asda"
+        //this.password="12345asda"
         this.aboutMe=data.AboutMe;
-        // this.farmer.farmerrole=this.farmerrole;
-        // this.farmer.buyerrole=this.buyerrole;
+        this.farmer.roleType=this.roleType;
+        
       }
       
     },(err)=>{

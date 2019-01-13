@@ -20,7 +20,7 @@
                               </div> -->
                   <div class="col-md-4">
                     <mat-form-field class="example-full-width">
-                      <input matInput placeholder="Username/පරිශීලක නම" matInput value= {{userName}} (input)="userName = $event.target.value">
+                      <input matInput placeholder="Username/පරිශීලක නම" matInput value= {{userName}} readonly="readonly" >
                     </mat-form-field>
                   </div>
                   <div class="col-md-5">
@@ -67,11 +67,11 @@
                       <input matInput placeholder="City/නගරය" matInput value= {{city}} type="text" (input)="city = $event.target.value">
                     </mat-form-field>
                   </div>
-                  <div class="col-md-8">
+                  <!-- <div class="col-md-8">
                     <mat-form-field class="example-full-width">
                       <input matInput placeholder="Change Password/මුරපදය වෙනස් කරන්න" matInput value= {{password}} type="text" (input)="password = $event.target.value">
                     </mat-form-field>
-                  </div>
+                  </div> -->
                   <!-- <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="Postal Code" type="text">

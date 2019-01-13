@@ -20,6 +20,7 @@ import { ViewAdComponent } from '../../view-ad/view-ad.component';
 import { SignInComponent } from '../../login/sign-in/sign-in.component';
 import { SignUpComponent } from '../../login/sign-up/sign-up.component';
 import { CategoryComponent } from '../../admin-settings/category/category.component';
+
 import { 
   CarouselModule,
   AccordionModule 
