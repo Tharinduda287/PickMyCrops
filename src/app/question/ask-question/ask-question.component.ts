@@ -41,7 +41,7 @@ export class AskQuestionComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustHtml(text);
   }
   saveQuestion(question:any,title:string){
-    this.api.post("Question",{"Title":title,"question":question}).subscribe((data:any)=>{
+    this.api.post("api/Question",{"Title":title,"question":question}).subscribe((data:any)=>{
       console.log(data);
     },(err:HttpErrorResponse)=>{
       console.log(err);

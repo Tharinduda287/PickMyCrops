@@ -1,75 +1,69 @@
-
-
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-success">
-                  <h4 class="card-title ">Top Prices/ඉහළ මිල ගණන්</h4>
-                  <p class="card-category">According to Vegetable/
-                    එළවළු අනුව</p>
-              </div>
-            
-              
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="card">
-                    <div class="card-body">
-                      <carousel >
-                        <slide>
-                          <img src= "https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2011/revealinghow.jpg" alt="first slide" style="display: block; width: 550px; height:400px; ">
-                          <div class="carousel-caption d-none d-md-block">
-                          </div>
-                        </slide>
-                        <slide>
-                          <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2011/revealinghow.jpg" alt="second slide" style="display: block; width: 550px;height:400px;">
-                          <div class="carousel-caption d-none d-md-block">
-                          </div>
-                        </slide>
-                        <slide>
-                          <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2011/revealinghow.jpg" alt="third slide" style="display: block; width: 550px;height:400px;">
-                          <div class="carousel-caption d-none d-md-block">
-                          </div>
-                        </slide>
-                      </carousel>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <div class="card">
-                    <div class="card-body">
-                      <strong ><h3>ADD BID </h3></strong> <h6 >Minimum Bid is Rs.100 pkg/
-                          අවම ලංසුව රුපියල් 100 කි</h6>
-                      <input  placeholder="Amount" type="number" class="example-right-align" >100
-                      <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">
-                        Add Your BID/ලංසු එක් කරන්න
-                      </button>
-                      
-                    </div>
-                  </div>
-                  <!-- <div class="col-sm-3"> -->
-                      <div class="card">
-                        <div class="card-body">
-                  <h4>Potato/අර්තාපල්</h4>
-                  <h6>එන්.ගුණදාස</h6>
-                  <h6>Tel:07123636515 / 0712323245</h6>
-                 <h6>නුවරඑළිය</h6>
-                <!-- </div>   -->
-              </div>
-            </div>
-                </div>
-                  
-
-       
-              </div>
-              
-            
-                
-                
-              </div>
-            </div>
-
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-success">
+            <h4 class="card-title ">Top Prices/ඉහළ මිල ගණන්</h4>
+            <p class="card-category">According to Vegetable/එළවළු අනුව</p>
           </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <carousel >
+                    <!-- <slide>
+                      <img src= "https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2011/revealinghow.jpg" alt="first slide" style="display: block; width: 550px; height:400px; ">
+                      <div class="carousel-caption d-none d-md-block">
+                      </div>
+                    </slide>
+                    <slide>
+                      <img src="https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2011/revealinghow.jpg" alt="second slide" style="display: block; width: 550px;height:400px;">
+                      <div class="carousel-caption d-none d-md-block">
+                      </div>
+                    </slide> -->
+                    <slide>
+                      <img [src]="ad.Image" alt="third slide" style="display: block; width: 550px;height:400px;">
+                      <div class="carousel-caption d-none d-md-block">
+                      </div>
+                    </slide>
+                  </carousel>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="card">
+                <div class="card-body">
+                  <strong ><h3>ADD BID </h3></strong> 
+                  <h6 >Minimum Bid is Rs.{{ad.price}} pkg/අවම ලංසුව රුපියල් {{ad.price}} කි</h6>
+                  <input  placeholder="Amount" type="number" class="example-right-align" value="ad.price">{{ad.price}}
+                  <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">Add Your BID/ලංසු එක් කරන්න
+                  </button>
+                </div>
+              </div>
+              <!-- <div class="col-sm-3"> -->
+              <div class="card">
+                <div class="card-body">
+                  <h4>{{ad.vegType}}</h4>
+                  <h6>එන්.ගුණදාස</h6>
+                  <h6>Tel:07123636515/0712323245</h6>
+                  <h6>නුවරඑළිය</h6>
+                <!-- </div>   -->
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <div class="card">
+                <div class="card-body">
+                  <agm-map [zoom]="10" [latitude]="lat" [longitude]="lng">
+                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                  </agm-map>
+                </div>
+              </div>
+            </div>
+          </div> 
         </div>
       </div>
+    </div>
+  </div>
+</div>

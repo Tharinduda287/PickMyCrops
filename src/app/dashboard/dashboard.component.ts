@@ -20,10 +20,10 @@ export class DashboardComponent implements OnInit {
     var data = require('./data.json');
     this.data=data;//here should get data calling api from backend
     this.api=api;
-    this.api.get('https://jsonplaceholder.typicode.com/todos/').subscribe(r=>{
-      this.getdata=r;
-      console.log(this.getdata);
-    },e=>{});
+    // this.api.get('https://jsonplaceholder.typicode.com/todos/').subscribe(r=>{
+    //   this.getdata=r;
+    //   console.log(this.getdata);
+    // },e=>{});
   
   }
   startAnimationForLineChart(chart){

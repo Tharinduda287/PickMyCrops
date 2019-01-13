@@ -47,7 +47,7 @@ import { AskQuestionComponent } from 'app/question/ask-question/ask-question.com
 import { NgxLoadingModule } from 'ngx-loading';
 import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.component';
 import { AddNewCategoryComponent, TestComponent } from 'app/admin-settings/category/category.component';
-
+import {AgmCoreModule} from '@agm/core';
 @NgModule({
   imports: [
     CommonModule,
@@ -71,7 +71,10 @@ import { AddNewCategoryComponent, TestComponent } from 'app/admin-settings/categ
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDialogModule 
+    MatDialogModule ,
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+    }),
   ],
   declarations: [
     DashboardComponent,

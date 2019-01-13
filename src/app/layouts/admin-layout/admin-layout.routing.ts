@@ -66,7 +66,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'news',      component: NewsComponent },
     { path: 'user-profile',   component: UserProfileComponent,canActivate:[AuthGuard]},
     { path: 'table-list',     component: TableListComponent },
-    { path: 'viewAd',     component: ViewAdComponent },
+    { path: 'viewAd/:id',     component: ViewAdComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent,canActivate:[AuthGuard] },
