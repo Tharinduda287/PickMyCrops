@@ -72,7 +72,7 @@ import {AgmCoreModule} from '@agm/core';
     MatSortModule,
     MatDialogModule ,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA1bIWhk15mDLlkg-6dhYV1M8f6KLK3BDE'
+      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
   ],
   declarations: [
