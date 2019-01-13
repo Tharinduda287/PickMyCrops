@@ -26,7 +26,7 @@ export class QuestionComponent implements OnInit {
   constructor(private route: ActivatedRoute,private fb: FormBuilder,private sanitizer:DomSanitizer,api:Api) {
     this.api = api;
     this.id = this.route.snapshot.paramMap.get('id');
-    this.api.get("Question/"+this.id) .subscribe((data:any)=>{
+    this.api.get("api/Question/"+this.id) .subscribe((data:any)=>{
       this.QnA = data;
       console.log(data);
     },(err:HttpErrorResponse)=>{
@@ -71,7 +71,7 @@ export class QuestionComponent implements OnInit {
     // .replace('class="outputImage" class="outputImage"','class="outputImage"'));
   }
   SaveYourAnswar(answer:any){
-    this.api.post("Answer",{"Answar":answer,"QuestionId":this.id}).subscribe((data:any)=>{
+    this.api.post("api/Answer",{"Answar":answer,"QuestionId":this.id}).subscribe((data:any)=>{
       console.log(data);
     },(err:HttpErrorResponse)=>{
       console.log(err);

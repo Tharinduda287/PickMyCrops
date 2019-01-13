@@ -11,7 +11,7 @@
                   </div>
                   <div class="card-body">
                   <div class="card" style="margin-left:4px">
-                      <form >
+                      <form #imageForm=ngForm>
                           <div class="row">
                               <!-- <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
@@ -37,29 +37,21 @@
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fruit or Vegetable/පළතුරු හෝ එළවළු වර්ගය"matInput value= {{firstName}} type="text" (input)="firstName = $event.target.value">
+                                  <input matInput placeholder="Fruit or Vegetable/පළතුරු හෝ එළවළු වර්ගය"matInput value= {{advertisement.vegtype}} type="text" (input)="advertisement.vegtype = $event.target.value">
                                 </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Stock/ප්‍රමාණය" matInput value= {{lastName}} type="text" (input)="lastName = $event.target.value">
+                                  <input matInput placeholder="Stock/ප්‍රමාණය" matInput value= {{advertisement.amount}} type="text" (input)="advertisement.amount = $event.target.value">
                                 </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                           <div class="col-md-6">
                             <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Price/kg/මිල කිලෝ ග්‍රෑමයට" matInput value= {{password}} type="text" (input)="password = $event.target.value">
+                              <input matInput placeholder="Price/kg/මිල කිලෝ ග්‍රෑමයට" matInput value= {{advertisement.price}} type="text" (input)="advertisement.price = $event.target.value">
                             </mat-form-field>
-                          </div>
-                          
-                            <div class="col-md-6">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder="location/ස්තානය" matInput value= {{city}} type="text" (input)="city = $event.target.value">
-                              </mat-form-field>
-                            </div>
-                          
-                             
+                          </div>   
                         </div>
                           <div class="row">
                               <div class="col-md-12">
@@ -72,20 +64,16 @@
                           <div class="row">
                             <div class="col-md-12">
                             <label class="btn btn-default btn-file">
-                              Choose a picture of your crop/පින්තූරයක් උඩුගත කරන්න <input type="file" style="display: none;">
+                              Choose a picture of your crop/පින්තූරයක් උඩුගත කරන්න 
+                              <input type="file" #image accept="image/*" (change)="handleInputChange($event)" style="display: none;">
                           </label>
                           </div>
                       </div>
-                      
-                        
-                        
-
-                          <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">
-                            Update Profile/උඩුගත කරන්න
-                          </button>
-
-                          <!-- <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="update()" data-target="#exampleModal">Update Profile/උඩුගත කරන්න</button> -->
-                          <div class="clearfix"></div>
+                      <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">
+                        Update Profile/උඩුගත කරන්න
+                      </button>
+                      <!-- <button mat-raised-button type="submit" class="btn btn-success pull-right" (click)="update()" data-target="#exampleModal">Update Profile/උඩුගත කරන්න</button> -->
+                      <div class="clearfix"></div>
                       </form>
                   </div></div>
               </div>
@@ -104,7 +92,7 @@
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>       
                   <!-- <button type="button" class="btn btn-success pull-right"  [routerLink]="['/viewAd']" >Save changes</button> -->
-                  <button type="button" class="btn btn-success pull-right" (click)="update()"  >Save changes</button>
+                  <button type="button" class="btn btn-success pull-right" data-dismiss="modal" (click)="update(imageForm)" >Save changes</button>
 
                 </div>
               </div>

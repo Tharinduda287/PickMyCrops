@@ -62,7 +62,7 @@ export class NewsComponent implements OnInit {
   api:Api;
   constructor(api:Api) {
     this.api =api;
-    this.api.get("Question") .subscribe((data:any)=>{
+    this.api.get("api/Question") .subscribe((data:any)=>{
       this.news = data;
       console.log(data);
     },(err:HttpErrorResponse)=>{

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Api } from 'app/services/api.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Advertisement } from 'app/new-ad/new-advertisement.model';
+import { ActivatedRoute } from '@angular/router';
+declare const google: any;
 @Component({
   selector: 'app-view-ad',
   templateUrl: './view-ad.component.html',
@@ -15,10 +19,26 @@ export class ViewAdComponent implements OnInit {
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
     {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
   ];
-
-  constructor() { }
+  ad:Advertisement;
+  public api:Api;
+  public id: string;
+  lat:number=7.240937;
+  lng:number=81.592800;
+  constructor(private route: ActivatedRoute,api:Api) { 
+    this.api =api;
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.api.get("api/Advertiestment/"+this.id).subscribe((data:any)=>{
+      this.ad=data;
+      this.lat=this.ad.lat;
+      this.lng=this.ad.lng;
+      console.log(this.ad);
+    },(err:HttpErrorResponse)=>{
+      console.log(err);
+    });
+  }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id'); 
   }
 
 }
