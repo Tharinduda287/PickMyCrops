@@ -47,6 +47,7 @@ import { NgxLoadingModule } from 'ngx-loading';
 import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.component';
 import { AddNewCategoryComponent, TestComponent } from 'app/admin-settings/category/category.component';
 import {AgmCoreModule} from '@agm/core';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
 @NgModule({
   imports: [
     CommonModule,
@@ -74,6 +75,7 @@ import {AgmCoreModule} from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
+    Ng2ImgMaxModule
   ],
   declarations: [
     DashboardComponent,

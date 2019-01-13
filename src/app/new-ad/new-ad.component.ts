@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Api } from 'app/services/api.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Advertisement } from 'app/new-ad/new-advertisement.model';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 @Component({
   selector: 'app-new-ad',
   templateUrl: './new-ad.component.html',
@@ -13,7 +14,7 @@ export class NewAdComponent implements OnInit {
   private imageSrc: string = '';
   private advertisement:Advertisement =new Advertisement();
   api:Api;
-  constructor(private router:Router,api:Api) {
+  constructor(private router:Router,api:Api,private ng2ImgMax: Ng2ImgMaxService) {
     this.api=api;
    }
 
@@ -42,7 +43,14 @@ export class NewAdComponent implements OnInit {
       return;
     }
     reader.onload = this._handleReaderLoaded.bind(this);
-    reader.readAsDataURL(file);
+    this.ng2ImgMax.resizeImage(file, 550, 400).subscribe(
+      result => {
+        reader.readAsDataURL(result);
+      },
+      error => {
+        console.log('😢 Oh no!', error);
+      }
+    );
   }
   _handleReaderLoaded(e) {
     let reader = e.target;
