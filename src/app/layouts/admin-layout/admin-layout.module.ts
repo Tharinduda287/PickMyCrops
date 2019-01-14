@@ -50,6 +50,7 @@ import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.compon
 import { AddNewCategoryComponent, TestComponent } from 'app/admin-settings/category/category.component';
 import {AgmCoreModule} from '@agm/core';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { AdvertisementByCategoryComponent } from 'app/dashboard/advertisement-by-category/advertisement-by-category.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -100,7 +101,8 @@ import { Ng2ImgMaxModule } from 'ng2-img-max';
     AdminSettingsComponent,
     AddNewCategoryComponent,
     CategoryComponent,
-    TestComponent
+    TestComponent,
+    AdvertisementByCategoryComponent
   ],
   exports: [
     CategoryComponent

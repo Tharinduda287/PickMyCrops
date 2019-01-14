@@ -17,7 +17,7 @@ import { AuthGuard } from 'app/auth/auth.guard';
 import { NewsComponent } from 'app/news/news.component';
 import { QuestionComponent } from 'app/question/question.component';
 import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.component';
-
+import { AdvertisementByCategoryComponent } from 'app/dashboard/advertisement-by-category/advertisement-by-category.component';
 export const AdminLayoutRoutes: Routes = [
     // {
     //   path: '',
@@ -80,6 +80,6 @@ export const AdminLayoutRoutes: Routes = [
         path: 'signup',        component: LoginComponent,
         children:[{path:'',component: SignUpComponent }]
     },
-    { path: 'news/:id',      component: QuestionComponent }
-
+    { path: 'news/:id',      component: QuestionComponent },
+    { path: 'advert/:id',      component: AdvertisementByCategoryComponent }
 ];

@@ -50,8 +50,11 @@ export class CategoryComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result!=""){
         console.log(result);
-        this.api.post("api/VegCategory",result).subscribe((data:any)=>{
-          this.dataSource.data.push(data);
+        this.api.post("api/VegCategory",result).subscribe((d:any)=>{
+          //this.dataSource.data.push(d);
+          const data = this.dataSource.data;
+          data.push(d);
+          this.dataSource.data = data;
         },(err:HttpErrorResponse)=>{
           console.log(err);
         });
