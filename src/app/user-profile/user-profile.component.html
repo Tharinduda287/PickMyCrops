@@ -138,13 +138,15 @@
         <div class="card card-profile">
           <div class="card-avatar">
             <a href="#">
-              <img class="img" src={{path}} />
+              <!-- <img class="img" src={{path}} /> -->
+              <img class="img" [src]="path"/>
               <!-- <input type="file" (change)="handleUpload($event)"> -->
             </a>
             
           </div>
           <div class="card- ">
-          <input type="file" (change)="updatePhoto($event)">
+          <!-- //<input type="file" (change)="updatePhoto($event)"> -->
+          <input type="file" #image accept="image/*" (change)="handleInputChange($event)" >
             <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly" style="color: #95b31a;font-size: 25px;"></rating>
             <h6 class="card-category text-gray" style="margin-top:5px;">{{userName}}</h6>
             <h4 class="card-title" style="margin-top: -10px;">{{firstName}} {{lastName}}</h4>
@@ -152,6 +154,8 @@
               {{aboutMe}}</p>
             <!-- <a href="#pablo" class="btn btn-danger btn-round">Follow</a> -->
           </div>
+
+         
         </div>
       </div>
     </div>

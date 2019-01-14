@@ -11,5 +11,6 @@ export class farmerDetail {
     AboutMe :string;
     pathValue :  string;
     roleType:any;
+    imageSrc:any;
    
 }

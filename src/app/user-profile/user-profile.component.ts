@@ -31,6 +31,7 @@ export class UserProfileComponent implements OnInit {
     farmerrole:any;
     buyerrole:any;
     roleType:any;
+    private imageSrc: string = '';
     // isReadonly: boolean = true;
     
     isReadonly: boolean = true;
@@ -45,7 +46,7 @@ export class UserProfileComponent implements OnInit {
  
     ngOnInit() {
       // this.user();
-      this.path="https://www.thebetterindia.com/wp-content/uploads/2017/12/IMG-20171207-WA0017-500x500.jpg";
+      
       this.getDeatail();
       //this.update();
      
@@ -129,7 +130,7 @@ export class UserProfileComponent implements OnInit {
         this.farmer.City = this.city;      
         this.farmer.AboutMe = this.aboutMe; 
         this.farmer.roleType=this.roleType;
-        
+        this.farmer.imageSrc=this.imageSrc;
       
         console.log(this.farmer)
         var reqHeader = new HttpHeaders({'No-Auth':'True'}); 
@@ -178,13 +179,37 @@ export class UserProfileComponent implements OnInit {
         this.city=data.City;
         //this.password="12345asda"
         this.aboutMe=data.AboutMe;
-        this.farmer.roleType=this.roleType;
         
+        console.log(data.imageSrc)
+        if(data.imageSrc==null){
+          this.path="https://image.freepik.com/free-icon/male-user-profile-picture_318-37825.jpg";
+        }else{
+          this.path=data.imageSrc;
+          console.log(this.path)
+        }
       }
       
     },(err)=>{
       console.log(err);
     });
   
+  }
+
+  handleInputChange(e) {
+    var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    var pattern = /image-*/;
+    var reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
+    }
+    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.readAsDataURL(file);
+  }
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    this.imageSrc = reader.result;
+    this.update();
+    
   }
 }

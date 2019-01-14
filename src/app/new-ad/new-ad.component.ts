@@ -15,7 +15,7 @@ export class NewAdComponent implements OnInit {
   api:Api;
   constructor(private router:Router,api:Api) {
     this.api=api;
-   }
+   } 
 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -49,4 +49,4 @@ export class NewAdComponent implements OnInit {
     this.imageSrc = reader.result;
     console.log(this.imageSrc)
   }
-}
+} 
