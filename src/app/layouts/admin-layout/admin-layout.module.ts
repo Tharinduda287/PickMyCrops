@@ -36,7 +36,8 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatDialogModule 
+  MatDialogModule,
+  MatSelectModule 
 } from '@angular/material';
 
 import { NewsComponent } from 'app/news/news.component';
@@ -71,7 +72,8 @@ import { Ng2ImgMaxModule } from 'ng2-img-max';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDialogModule ,
+    MatDialogModule,
+    MatSelectModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),

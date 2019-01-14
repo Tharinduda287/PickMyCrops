@@ -14,8 +14,18 @@ export class NewAdComponent implements OnInit {
   private imageSrc: string = '';
   private advertisement:Advertisement =new Advertisement();
   api:Api;
+  options;
+  vegtype:string="";
   constructor(private router:Router,api:Api,private ng2ImgMax: Ng2ImgMaxService) {
     this.api=api;
+    this.api.get("api/VegCategory").subscribe((data:any)=>{
+      this.options=data.map(val => ({
+        "Id": val.Name,
+        "Name": val.Name
+      }));
+    },(err:HttpErrorResponse)=>{
+      console.log(err);
+    });
    }
 
   ngOnInit() {
@@ -24,12 +34,18 @@ export class NewAdComponent implements OnInit {
       localStorage.setItem('lng',""+position.coords.longitude);
     })
   }
+  changeSelection(value){
+    this.advertisement.vegtype = value;
+    console.log(this.advertisement.vegtype);
+  }
   update(data:any){
     this.advertisement.Image =this.imageSrc;
     this.advertisement.lat =+localStorage.getItem('lat');
     this.advertisement.lng =+localStorage.getItem('lng');
     this.api.post("api/UploadImage",this.advertisement).subscribe((data:any)=>{
-      console.log(data);
+      this.router.navigate(['/viewAd/'+data['Id']]);
+      //console.log(data);
+
     },(err:HttpErrorResponse)=>{
       console.log(err);
     });
@@ -43,7 +59,7 @@ export class NewAdComponent implements OnInit {
       return;
     }
     reader.onload = this._handleReaderLoaded.bind(this);
-    this.ng2ImgMax.resizeImage(file, 550, 400).subscribe(
+    this.ng2ImgMax.compressImage(file,0.075).subscribe( //resizeImage(image, 10000, 375).subscribe( <- To Resize image
       result => {
         reader.readAsDataURL(result);
       },

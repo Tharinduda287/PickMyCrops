@@ -37,19 +37,22 @@
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Fruit or Vegetable/පළතුරු හෝ එළවළු වර්ගය"matInput value= {{advertisement.vegtype}} type="text" (input)="advertisement.vegtype = $event.target.value">
+                                    <mat-select [(ngModel)]="vegtype" placeholder="Fruit or Vegetable/පළතුරු හෝ එළවළු වර්ගය" (selectionChange)="changeSelection($event.value)" required>
+                                        <mat-option *ngFor="let option of options" [value]="option.Id">{{ option.Name }}</mat-option>
+                                      </mat-select>
+                                  <!-- <input matInput placeholder="Fruit or Vegetable/පළතුරු හෝ එළවළු වර්ගය"matInput value= {{advertisement.vegtype}} type="text" (input)="advertisement.vegtype = $event.target.value"> -->
                                 </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Stock/ප්‍රමාණය" matInput value= {{advertisement.amount}} type="text" (input)="advertisement.amount = $event.target.value">
+                                  <input matInput placeholder="Stock/ප්‍රමාණය" matInput value= {{advertisement.amount}} type="text" (input)="advertisement.amount = $event.target.value" required>
                                 </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                           <div class="col-md-6">
                             <mat-form-field class="example-full-width">
-                              <input matInput placeholder="Price/kg/මිල කිලෝ ග්‍රෑමයට" matInput value= {{advertisement.price}} type="text" (input)="advertisement.price = $event.target.value">
+                              <input matInput placeholder="Price/kg/මිල කිලෝ ග්‍රෑමයට" matInput value= {{advertisement.price}} type="text" (input)="advertisement.price = $event.target.value" required>
                             </mat-form-field>
                           </div>   
                         </div>
@@ -62,10 +65,10 @@
                           </div>
 
                           <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12" contenteditable="true">
                             <label class="btn btn-default btn-file">
                               Choose a picture of your crop/පින්තූරයක් උඩුගත කරන්න 
-                              <input type="file" #image accept="image/*" (change)="handleInputChange($event)" style="display: none;">
+                              <input type="file" multiple #image accept="image/*" (change)="handleInputChange($event)" style="display: none;">
                           </label>
                           </div>
                       </div>

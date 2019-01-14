@@ -3,7 +3,7 @@
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Category Name</mat-label>
-      <input matInput placeholder="Placeholder" [(ngModel)]="data.name">
+      <input matInput placeholder="Placeholder" [(ngModel)]="data.Name">
       <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
       <mat-hint></mat-hint>
     </mat-form-field>
@@ -11,18 +11,20 @@
   <p>
     <mat-form-field appearance="outline">
       <mat-label>Category Description</mat-label>
-      <textarea matInput placeholder="Textarea" [(ngModel)]="data.weight"></textarea>
+      <textarea matInput placeholder="Textarea" [(ngModel)]="data.Description"></textarea>
       <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
       <mat-hint></mat-hint>
     </mat-form-field>
   </p>
-  <div class="input card">
-    <form [formGroup]="form">
-      <quill-editor #editor [style.display]="hide ? 'none' : 'block'" [readOnly]="isReadOnly"
-      [modules]="{toolbar: [
-        ['image']
-      ]}" [formControl]="form.controls['editor']" form.controls.editor.value="data.symbol"></quill-editor>
-    </form>
+  <div class="input card" style="width:150px;">
+      <label for="file-upload" class="custom-file-upload" style="display: inline-block;padding: 6px 12px;cursor: pointer;padding-top:5px;">
+          <i class="fa fa-cloud-upload"></i> Image Upload
+      </label>
+      <input id="file-upload" type="file" (change)="onImageChange($event)" accept="image/*" style="display: none;visibility:hidden;">
+  </div>
+  <img *ngIf="data.Image!=undefined" [src]="data.Image" style="display: block; width: 200px;height:150px;">
+  <div class="card">
+      
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
