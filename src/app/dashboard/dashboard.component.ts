@@ -3,6 +3,7 @@ import * as Chartist from 'chartist';
 import { HttpClient } from '@angular/common/http';
 // import * as data from './data.json';
 import {Api} from '../services/api.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -10,21 +11,16 @@ import {Api} from '../services/api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  max = 5;
-  rate =4;
   isReadonly: boolean = true;
   data:any;
   private api:Api;
-  getdata:any;
   constructor(private http: HttpClient,api:Api) { 
-    var data = require('./data.json');
-    this.data=data;//here should get data calling api from backend
     this.api=api;
-    // this.api.get('https://jsonplaceholder.typicode.com/todos/').subscribe(r=>{
-    //   this.getdata=r;
-    //   console.log(this.getdata);
-    // },e=>{});
-  
+    this.api.get("api/AdvertCountByCategory").subscribe((data:any)=>{
+      this.data = data;
+    },(err:HttpErrorResponse)=>{
+      console.log(err);
+    });  
   }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;

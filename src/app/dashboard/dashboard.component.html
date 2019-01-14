@@ -3,7 +3,26 @@
         <div class="card card-chart" style="background-color: #d8d8d8;padding-left: 10px;padding-right: 10px;margin-top: -10px;" >
             <div class="row">
                 <div class="col-sm-3 col-md-3" *ngFor="let ad of data | slice:0:12; let i=index">
-                    <advertisement [ad]="ad"></advertisement>
+                    
+
+                        <div class="card card-chart advertisement" routerLink="/advert/{{ad.cat.Id}}">
+                            <img class="card-img-top" [src]="ad.cat.Image" 
+                            style="height:150px;width:200px;margin-left: auto;margin-right:auto;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ad.cat.Name}}</h5>
+                                <!-- <h6 class="card-title" style="margin-top: -10px;">{{ad.farmer}}
+                                    <rating [(ngModel)]="ad.farmerRating" [max]="max" [readonly]="isReadonly"
+                                    style="padding-left: 10px;color: #95b31a;font-size: 15px;">
+                                    </rating>
+                                </h6> -->
+                                <div class="row"> 
+                                    <p class="card-text col-md-6 col-sm-4"></p>
+                                    <p class="card-text col-md-6 col-sm-6" style="float:right;">{{ad.count}}</p>
+                                </div>
+                            </div>            
+                          </div>
+
+
                 </div>
             </div>
         </div>

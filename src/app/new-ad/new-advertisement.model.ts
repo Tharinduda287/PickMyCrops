@@ -5,5 +5,5 @@ export class Advertisement {
     amount:number;
     lat:number;
     lng:number;
-    Image:string;
+    Image:Array<string>;
 }

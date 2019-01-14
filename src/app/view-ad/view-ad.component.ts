@@ -3,6 +3,7 @@ import { Api } from 'app/services/api.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Advertisement } from 'app/new-ad/new-advertisement.model';
 import { ActivatedRoute } from '@angular/router';
+
 declare const google: any;
 @Component({
   selector: 'app-view-ad',

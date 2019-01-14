@@ -1,13 +1,14 @@
 import { Component, OnInit, ViewChild, EventEmitter, Inject } from '@angular/core';
 import {MatPaginator, MatTableDataSource, MatSort, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { QuillEditorComponent } from 'ngx-quill';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import {DomSanitizer} from "@angular/platform-browser";
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { ConfirmationComponent } from 'app/components/confirmation/confirmation.component';
-
+import { Ng2ImgMaxService } from 'ng2-img-max';
+import { Api } from 'app/services/api.service';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -15,15 +16,26 @@ import { ConfirmationComponent } from 'app/components/confirmation/confirmation.
 })
 export class CategoryComponent implements OnInit {
 
-  name:string;
-  
+   ELEMENT_DATA: PeriodicElement[] = [
+    {Id: 1, Name: 'Hydrogen', Description: "Change event object that is emitted when the user selects a different page size or navigates to another page.",Image:null},
+    {Id: 2, Name: 'Helium', Description: "Change event object that is emitted when the user selects a different page size or navigates to another page.",Image:null},
+    {Id: 3, Name: 'Lithium', Description: "Change event object that is emitted when the user selects a different page size or navigates to another page.",Image:null},
+    {Id: 4, Name: 'Beryllium', Description: "Change event object that is emitted when the user selects a different page size or navigates to another page.",Image:null},
+    {Id: 5, Name: 'Boron', Description:"Change event object that is emitted when the user selects a different page size or navigates to another page.",Image:null},
+  ];
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'Action'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['Id', 'Name', 'Description','Action'];
+  dataSource; //= new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private api:Api) { 
+    this.api.get("api/VegCategory").subscribe((data:any)=>{
+      this.dataSource=new MatTableDataSource<PeriodicElement>(data);
+    },(err:HttpErrorResponse)=>{
+      console.log(err);
+    });
+  }
   
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
@@ -36,7 +48,17 @@ export class CategoryComponent implements OnInit {
       data: {}
     }); 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if(result!=""){
+        console.log(result);
+        this.api.post("api/VegCategory",result).subscribe((d:any)=>{
+          //this.dataSource.data.push(d);
+          const data = this.dataSource.data;
+          data.push(d);
+          this.dataSource.data = data;
+        },(err:HttpErrorResponse)=>{
+          console.log(err);
+        });
+      }
     });
   }
   deleteCategory(index){
@@ -65,31 +87,12 @@ export class CategoryComponent implements OnInit {
   }
 }
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: string;
-  symbol: string;
+  Name: string;
+  Id: number;
+  Description: string;
+  Image:string;
 }
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: '<p>fdfs</p>'},
-  {position: 2, name: 'Helium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Be'},
-  {position: 5, name: 'Boron', weight:"Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'F'},
-  {position: 10, name: 'Neon', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Ne'},
-  {position: 11, name: 'Sodium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Na'},
-  {position: 12, name: 'Magnesium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Mg'},
-  {position: 12, name: 'Magnesium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Mg'},
-  {position: 12, name: 'Magnesium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Mg'},
-  {position: 12, name: 'Magnesium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Mg'},
-  {position: 12, name: 'Magnesium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Mg'},
-  {position: 12, name: 'Magnesium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol: 'Mg'},
-  {position: 12, name: 'Magnesium', weight: "Change event object that is emitted when the user selects a different page size or navigates to another page.", symbol:"mh"},
-];
+
 @Component({
   selector: 'add-new-category',
   templateUrl: 'add-new-category.html',
@@ -97,32 +100,42 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class AddNewCategoryComponent implements OnInit {
   form: FormGroup;
   private outputText:string;
-  constructor(private fb: FormBuilder,private sanitizer:DomSanitizer,
+  constructor(private ng2ImgMax: Ng2ImgMaxService,private fb: FormBuilder,private sanitizer:DomSanitizer,
     public dialogRef: MatDialogRef<AddNewCategoryComponent>,
     @Inject(MAT_DIALOG_DATA) public data: PeriodicElement) { 
     this.form = fb.group({
-      editor: [data.symbol]
+      //editor: [data.symbol]
     })
   }
-  @ViewChild('editor') editor: QuillEditorComponent
   ngOnInit() {
-    this.editor
-    .onContentChanged
-    .pipe(
-      debounceTime(400),
-      distinctUntilChanged()
-    )
-    .subscribe(data => {
-      this.data.symbol=data.html
-      console.log(data.symbol)
-      this.outputText=data.htlm;
-    });
   }
   test(text){
     return this.sanitizer.bypassSecurityTrustHtml(text);
   }
   saveQuestion(question:any){
     console.log(question);
+  }
+  onImageChange(e){
+    var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+    var pattern = /image-*/;
+    var reader = new FileReader();
+    if (!file.type.match(pattern)) {
+      alert('invalid format');
+      return;
+    }
+    reader.onload = this._handleReaderLoaded.bind(this);
+    this.ng2ImgMax.resizeImage(file, 200, 150).subscribe( //<- To Resize image width:200px height:150px
+      result => {
+        reader.readAsDataURL(result);
+      },
+      error => {
+        console.log('😢 Oh no!', error);
+      }
+    );
+  }
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    this.data['Image'] = reader.result;
   }
 }
 

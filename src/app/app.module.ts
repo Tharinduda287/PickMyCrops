@@ -53,6 +53,7 @@ import {
   MatPseudoCheckboxModule,  
   MatCheckboxModule,
   MatExpansionModule,
+  MatSelectModule
 } from '@angular/material'; 
 import { LoginService } from 'app/services/login.service';
 import { AuthGuard } from './auth/auth.guard';
@@ -88,6 +89,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     MatChipsModule,
     MatPseudoCheckboxModule,
     MatExpansionModule,
+    MatSelectModule,
 
     AlertModule.forRoot(),
     

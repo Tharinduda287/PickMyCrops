@@ -37,7 +37,8 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatDialogModule 
+  MatDialogModule,
+  MatSelectModule 
 } from '@angular/material';
 
 import { NewsComponent } from 'app/news/news.component';
@@ -48,6 +49,8 @@ import { NgxLoadingModule } from 'ngx-loading';
 import { AdminSettingsComponent } from 'app/admin-settings/admin-settings.component';
 import { AddNewCategoryComponent, TestComponent } from 'app/admin-settings/category/category.component';
 import {AgmCoreModule} from '@agm/core';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { AdvertisementByCategoryComponent } from 'app/dashboard/advertisement-by-category/advertisement-by-category.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -71,10 +74,12 @@ import {AgmCoreModule} from '@agm/core';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDialogModule ,
+    MatDialogModule,
+    MatSelectModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
+    Ng2ImgMaxModule
   ],
   declarations: [
     DashboardComponent,
@@ -96,7 +101,8 @@ import {AgmCoreModule} from '@agm/core';
     AdminSettingsComponent,
     AddNewCategoryComponent,
     CategoryComponent,
-    TestComponent
+    TestComponent,
+    AdvertisementByCategoryComponent
   ],
   exports: [
     CategoryComponent

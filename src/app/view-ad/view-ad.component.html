@@ -22,8 +22,8 @@
                       <div class="carousel-caption d-none d-md-block">
                       </div>
                     </slide> -->
-                    <slide>
-                      <img [src]="ad.Image" alt="third slide" style="display: block; width: 550px;height:400px;">
+                    <slide *ngFor="let img of ad.Image; let i=index">
+                      <img [src]="img" alt="third slide" style="display: block; width: 550px;height:400px;">
                       <div class="carousel-caption d-none d-md-block">
                       </div>
                     </slide>
@@ -56,7 +56,7 @@
               <div class="card">
                 <div class="card-body">
                   <agm-map [zoom]="10" [latitude]="lat" [longitude]="lng">
-                    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                    <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker>
                   </agm-map>
                 </div>
               </div>
