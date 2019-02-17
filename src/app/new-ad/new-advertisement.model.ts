@@ -1,7 +1,7 @@
 export class Advertisement {
 
     vegtype:string;
-    vegtid:number;
+    vegid:number;
     price:number;
     amount:number;
     lat:number;

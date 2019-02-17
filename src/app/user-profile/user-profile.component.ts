@@ -137,10 +137,13 @@ export class UserProfileComponent implements OnInit {
         
         // this.http.post(this.rootUrl +'/UpdateUser',this.farmer,{headers:reqHeader}).subscribe((response: Response) =>{
           this.api.post('UpdateUser',this.farmer).subscribe((response: Response) =>{
-          console.log (response.json());
-          
+          console.log (response);
+          if (response){
+            window.location.reload();
+          }
           })   
-          window.location.reload();
+        
+          
     }
 
     getDeatail(){

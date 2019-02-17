@@ -40,7 +40,8 @@ export class NewAdComponent implements OnInit {
     })
   }
   changeSelection(value){
-    this.advertisement.vegtype = value;
+    this.advertisement.vegtype = value.Name;
+    this.advertisement.vegid = value.Id;
     console.log(this.advertisement.vegtype);
   }
   update(data:any){

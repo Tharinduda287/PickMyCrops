@@ -12,28 +12,9 @@
                   <div class="card-body">
                   <div class="card" style="margin-left:4px">
                       <form #imageForm=ngForm>
-                          <div class="row">
-                              <!-- <div class="col-md-5">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Company (disabled)" disabled>
-                                  </mat-form-field>
-                              </div> -->
-                              <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Username/පරිශීලක නම" matInput value= {{userName}} (input)="userName = $event.target.value">
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-5">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email address/ඊමේල් ලිපිනය" matInput value= {{email}} type="email" (input)="email = $event.target.value">
-                                  </mat-form-field>
-                              </div>
-                              <div class="col-md-3">
-                                <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Contact No:/දු.ක." matInput value= {{contactNo}} type="text" (input)="contactNo = $event.target.value">
-                                </mat-form-field>
-                              </div>
-                          </div>
+                         
+                             
+                         
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
@@ -55,19 +36,26 @@
                               <input matInput placeholder="Price/kg/මිල කිලෝ ග්‍රෑමයට" matInput value= {{advertisement.price}} type="text" (input)="advertisement.price = $event.target.value" required>
                             </mat-form-field>
                           </div>   
+                          <div class="col-md-3">
+                            <mat-form-field class="example-full-width">
+                              <input matInput placeholder="Contact No:/දු.ක." matInput value= {{contactNo}} type="text" (input)="contactNo = $event.target.value">
+                            </mat-form-field>
+                          </div>
                         </div>
-                          <div class="row">
+                          <!-- <div class="row">
                               <div class="col-md-12">
                                 <mat-form-field class="example-full-width">
                                   <input matInput placeholder="Adress/ලිපිනය" matInput value= {{address}} type="text" (input)="address = $event.target.value">
                                 </mat-form-field>
                               </div>
-                          </div>
+                          </div> -->
 
                           <div class="row">
-                            <div class="col-md-6" contenteditable="true">
-                            <label class="btn btn-default btn-file example-full-width">
-                              Choose a picture of your crop/පින්තූරයක් උඩුගත කරන්න 
+                            <div class="col-md-8" contenteditable="true">
+                            <label class="btn btn-default btn-file" data-toggle="modal">
+                              
+                              Choose a picture of your crop
+                              <br>පින්තූරයක් උඩුගත කරන්න 
                               <input type="file" #image accept="image/*" (change)="handleInputChange($event)" style="display: none;">
                           </label>
                           </div>
