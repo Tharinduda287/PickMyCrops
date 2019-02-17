@@ -65,8 +65,8 @@
                           </div>
 
                           <div class="row">
-                            <div class="col-md-12" contenteditable="true">
-                            <label class="btn btn-default btn-file">
+                            <div class="col-md-6" contenteditable="true">
+                            <label class="btn btn-default btn-file example-full-width">
                               Choose a picture of your crop/පින්තූරයක් උඩුගත කරන්න 
                               <input type="file" #image accept="image/*" (change)="handleInputChange($event)" style="display: none;">
                           </label>
@@ -75,7 +75,7 @@
                       <div class="row" *ngFor="let img of imgArr; let i=index">
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <img [src]="img" style="width: 200px;height:150px;">
-                            <a href="#" class="delete">Delete</a>
+                            <a class="delete">Delete</a>
                         </div>                        
                       </div>
                       <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">

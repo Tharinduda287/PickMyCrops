@@ -4,7 +4,6 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Advertisement } from 'app/new-ad/new-advertisement.model';
 import { ActivatedRoute } from '@angular/router';
 
-declare const google: any;
 @Component({
   selector: 'app-view-ad',
   templateUrl: './view-ad.component.html',
@@ -25,9 +24,15 @@ export class ViewAdComponent implements OnInit {
   public id: string;
   lat:number=7.240937;
   lng:number=81.592800;
+  latC:number=0;
+  lngC:number=0;
   constructor(private route: ActivatedRoute,api:Api) { 
     this.api =api;
     this.id = this.route.snapshot.paramMap.get('id');
+    navigator.geolocation.getCurrentPosition(function(position) {
+      this.latC=position.coords.latitude;
+      this.lngC=position.coords.longitude;
+    })
     this.api.get("api/Advertiestment/"+this.id).subscribe((data:any)=>{
       this.ad=data;
       this.lat=this.ad.lat;

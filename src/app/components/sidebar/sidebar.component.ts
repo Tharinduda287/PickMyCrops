@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../../services/navbar.service';
+import { Router } from '@angular/router';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -27,8 +28,12 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
-
-  constructor(public nav: NavbarService) { }
+  private userToken:boolean=false;
+  constructor(public nav: NavbarService, private router: Router) {
+    router.events.subscribe(e=>{
+        this.userToken=(localStorage.getItem('userToken')!=null);
+    });
+   }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -39,4 +44,8 @@ export class SidebarComponent implements OnInit {
       }
       return true;
   };
+  logout(){
+    localStorage.removeItem('userToken');
+    this.router.navigate(['/dashboard'])
+}
 }

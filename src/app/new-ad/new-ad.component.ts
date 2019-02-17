@@ -18,6 +18,10 @@ export class NewAdComponent implements OnInit {
   vegtype:string="";
   imgArr:Array<string>=new Array<string>();
   constructor(private router:Router,api:Api,private ng2ImgMax: Ng2ImgMaxService) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      localStorage.setItem('lat',""+position.coords.latitude);
+      localStorage.setItem('lng',""+position.coords.longitude);
+    })
     this.api=api;
     this.api.get("api/VegCategory").subscribe((data:any)=>{
       this.options=data.map(val => ({
@@ -42,6 +46,10 @@ export class NewAdComponent implements OnInit {
   update(data:any){
     
     this.advertisement.Image =this.imgArr;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      localStorage.setItem('lat',""+position.coords.latitude);
+      localStorage.setItem('lng',""+position.coords.longitude);
+    })
     this.advertisement.lat =+localStorage.getItem('lat');
     this.advertisement.lng =+localStorage.getItem('lng');
     this.api.post("api/UploadImage",this.advertisement).subscribe((data:any)=>{

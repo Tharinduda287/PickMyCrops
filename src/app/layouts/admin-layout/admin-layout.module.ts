@@ -51,6 +51,7 @@ import { AddNewCategoryComponent, TestComponent } from 'app/admin-settings/categ
 import {AgmCoreModule} from '@agm/core';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
 import { AdvertisementByCategoryComponent } from 'app/dashboard/advertisement-by-category/advertisement-by-category.component';
+import { HomeVegComponent } from 'app/home-veg/home-veg.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -77,7 +78,7 @@ import { AdvertisementByCategoryComponent } from 'app/dashboard/advertisement-by
     MatDialogModule,
     MatSelectModule,
     AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
+      apiKey: 'AIzaSyA1bIWhk15mDLlkg-6dhYV1M8f6KLK3BDE'
     }),
     Ng2ImgMaxModule
   ],
@@ -102,7 +103,8 @@ import { AdvertisementByCategoryComponent } from 'app/dashboard/advertisement-by
     AddNewCategoryComponent,
     CategoryComponent,
     TestComponent,
-    AdvertisementByCategoryComponent
+    AdvertisementByCategoryComponent,
+    HomeVegComponent
   ],
   exports: [
     CategoryComponent

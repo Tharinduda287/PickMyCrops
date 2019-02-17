@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
-    private userToken:boolean;
+    private userToken:boolean=false;
     constructor(location: Location,  private element: ElementRef, private router: Router,public nav: NavbarService ) {
         this.location = location;
         this.sidebarVisible = false;
@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit {
       this.listTitles = ROUTES.filter(listTitle => listTitle);
       const navbar: HTMLElement = this.element.nativeElement;
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+      console.log("toggle:  "+this.toggleButton);
       this.router.events.subscribe((event) => {
         this.sidebarClose();
          var $layer: any = document.getElementsByClassName('close-layer')[0];
@@ -42,7 +43,9 @@ export class NavbarComponent implements OnInit {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
         setTimeout(function(){
-            toggleButton.classList.add('toggled');
+            if(toggleButton!=undefined){
+                toggleButton.classList.add('toggled');
+            }
         }, 500);
 
         body.classList.add('nav-open');
@@ -51,7 +54,9 @@ export class NavbarComponent implements OnInit {
     };
     sidebarClose() {
         const body = document.getElementsByTagName('body')[0];
-        this.toggleButton.classList.remove('toggled');
+        if(this.toggleButton!=undefined){
+            this.toggleButton.classList.remove('toggled');
+        }
         this.sidebarVisible = false;
         body.classList.remove('nav-open');
     };
@@ -59,7 +64,7 @@ export class NavbarComponent implements OnInit {
         // const toggleButton = this.toggleButton;
         // const body = document.getElementsByTagName('body')[0];
         var $toggle = document.getElementsByClassName('navbar-toggler')[0];
-
+        
         if (this.sidebarVisible === false) {
             this.sidebarOpen();
         } else {

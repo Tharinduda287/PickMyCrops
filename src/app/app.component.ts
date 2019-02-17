@@ -9,6 +9,10 @@ import { Event, Router, NavigationStart, NavigationEnd, NavigationCancel, Naviga
 export class AppComponent {
   showLoadingIndicator =true;
   constructor(private _router:Router){
+    navigator.geolocation.getCurrentPosition(function(position) {
+      localStorage.setItem('lat',""+position.coords.latitude);
+      localStorage.setItem('lng',""+position.coords.longitude);
+    })
     this._router.events.subscribe((routerEvent:Event)=>{
       if(routerEvent instanceof NavigationStart){
         this.showLoadingIndicator =true;

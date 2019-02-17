@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 @Injectable()
 export class LoginService {
-  readonly rootUrl = 'http://localhost:16626';
+  readonly rootUrl = 'http://192.168.8.101:7314';
   constructor(private http:HttpClient) {}
   registerUser(user:User){
     const body = new User();
