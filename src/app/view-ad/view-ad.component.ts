@@ -25,6 +25,8 @@ export class ViewAdComponent implements OnInit {
   public id: string;
   lat:number=7.240937;
   lng:number=81.592800;
+  userId:string;
+  value:any;
   constructor(private route: ActivatedRoute,api:Api) { 
     this.api =api;
     this.id = this.route.snapshot.paramMap.get('id');
@@ -32,14 +34,25 @@ export class ViewAdComponent implements OnInit {
       this.ad=data;
       this.lat=this.ad.lat;
       this.lng=this.ad.lng;
-      console.log(this.ad);
+      this.userId=data.userId;
+      this.getuser();
+      console.log(this.userId);
     },(err:HttpErrorResponse)=>{
       console.log(err);
     });
+    
   }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id'); 
   }
 
+
+  getuser(){
+    this.api.get('GetUsersp/'+this.userId).subscribe((response: Response) =>{
+     
+      this.value=response;
+      console.log(this.value)
+      }) 
+  }
 }
