@@ -73,6 +73,10 @@ export class QuestionComponent implements OnInit {
   SaveYourAnswar(answer:any){
     this.api.post("api/Answer",{"Answar":answer,"QuestionId":this.id}).subscribe((data:any)=>{
       console.log(data);
+      this.form = this.fb.group({
+        editor: ['']
+      })
+      this.QnA.push(data);
     },(err:HttpErrorResponse)=>{
       console.log(err);
     });

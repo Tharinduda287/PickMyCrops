@@ -25,7 +25,7 @@ export class NewAdComponent implements OnInit {
     this.api=api;
     this.api.get("api/VegCategory").subscribe((data:any)=>{
       this.options=data.map(val => ({
-        "Id": val.Name,
+        "Id": val.Id,
         "Name": val.Name
       }));
     },(err:HttpErrorResponse)=>{
