@@ -36,7 +36,7 @@
                 <div class="card-body">
                   <strong ><h3>ADD BID </h3></strong> 
                   <h6 >Minimum Bid is Rs.{{ad.price}} pkg/අවම ලංසුව රුපියල් {{ad.price}} කි</h6>
-                  <input  placeholder="Amount" type="number" class="example-right-align" value="ad.price">{{ad.price}}
+                  <input  placeholder="Amount" type="number" class="example-right-align" value={{ad.price}}>
                   <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#exampleModal">Add Your BID/ලංසු එක් කරන්න
                   </button>
                 </div>
@@ -45,9 +45,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4>{{ad.vegType}}</h4>
-                  <h6>එන්.ගුණදාස</h6>
-                  <h6>Tel:07123636515/0712323245</h6>
-                  <h6>නුවරඑළිය</h6>
+                  <h6>{{value.FirstName}} {{value.LastName}}</h6>
+                  <h6>{{value.ContactNumber}}</h6>
+                  <h6>{{value.City}}</h6>
                 <!-- </div>   -->
                 </div>
               </div>
